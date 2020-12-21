@@ -30,9 +30,10 @@ if ($status == false) {
     $budget = $shop['budget'];
     $score = $shop['score'];
 }
+
 //レビューのデータを持ってくる処理
-$sql = 'SELECT title,text,score,name FROM posts 
-        LEFT OUTER JOIN user ON posts.member_id=user.id WHERE shop_id=:id';
+$sql = 'SELECT p.title,p.text,p.score,u.name,p.created FROM posts as p 
+        LEFT OUTER JOIN user as u ON p.member_id=u.id WHERE p.shop_id=:id ORDER BY p.created DESC';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $status = $stmt->execute();
@@ -43,6 +44,22 @@ if ($status == false) {
 } else {
     $reviews = $stmt->fetchall(PDO::FETCH_ASSOC);
 };
+
+//レビューの評価の平均点を出す処理
+$sql = 'SELECT COUNT(score),SUM(score) FROM posts WHERE shop_id=:id';
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+$status = $stmt->execute();
+if ($status == false) {
+    $error = $stmt->errorInfo();
+    echo json_encode(["error_msg" => "{$error[2]}"]);
+    exit();
+} else {
+    $scores = $stmt->fetch(PDO::FETCH_ASSOC);
+    $total_score = $scores['SUM(score)'] / $scores['COUNT(score)'];
+    $score_count = $scores['COUNT(score)'];
+};
+
 
 ?>
 <!DOCTYPE html>
@@ -60,10 +77,16 @@ if ($status == false) {
 </head>
 
 <body>
+    <!-- 店舗情報 -->
     <div>
         <h2><?= $name ?></h2>
         <img src="<?= $img ?>" alt="" width="300px">
         <table>
+            <tr>
+                <th>評価</th>
+                <td>：</td>
+                <td><?= $total_score ?>点　（<?= $score_count ?>人の評価）</td>
+            </tr>
             <tr>
                 <th>電話番号</th>
                 <td>：</td>
@@ -101,12 +124,14 @@ if ($status == false) {
             $text = $review['text'];
             $score = $review['score'];
             $name = $review['name'];
+            $time = $review['created'];
             ?>
             <div>
                 <h3><?= $title ?></h3>
                 <p><?= $text ?></p>
                 <p><?= $score ?>点</p>
                 <p><?= $name ?></p>
+                <p><?= $time ?></p>
             </div>
         <?php endforeach; ?>
     </div>
