@@ -12,3 +12,5 @@ $(document).ready(function () {
         $('.search-label').addClass("focus")
       });
 });
+
+  AOS.init();

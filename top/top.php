@@ -27,6 +27,7 @@ if ($status == false) {
   <title>Document</title>
   <link rel="stylesheet" href="top.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -58,7 +59,7 @@ if ($status == false) {
             <li>btn</li>
             <li>btn</li>
           </ul>
-      </div>
+        </div>
       </div>
       <div class="search">
         <div class="search-input">
