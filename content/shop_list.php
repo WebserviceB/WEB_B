@@ -56,6 +56,3 @@ if ($status == false) {
 </body>
 
 </html>
-
-<!-- 画像、名前、時間 -->
-<

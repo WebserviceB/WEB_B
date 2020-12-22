@@ -3,9 +3,9 @@ session_start();
 include("../functions.php");
 $pdo = connect_to_db();
 
-$id = 10;  //テスト用   
+// $id = 10;  //テスト用   
 $member_id = 2;  //テスト用
-// $id = $_GET['id];  //本番はこっち
+$id = $_GET['id'];  //本番はこっち
 // $member_id = $_SESSION['id'];  //本番はこっち
 
 //店舗情報のデータを持ってくる処理
@@ -56,8 +56,13 @@ if ($status == false) {
     exit();
 } else {
     $scores = $stmt->fetch(PDO::FETCH_ASSOC);
-    $total_score = $scores['SUM(score)'] / $scores['COUNT(score)'];
-    $score_count = $scores['COUNT(score)'];
+    if ($scores['COUNT(score)'] > 0) {
+        $total_score = $scores['SUM(score)'] / $scores['COUNT(score)'];
+        $score_count = $scores['COUNT(score)'];
+    } else {
+        $total_score = 0;
+        $score_count = 0;
+    }
 };
 
 
@@ -96,7 +101,7 @@ if ($status == false) {
                             <tr>
                                 <th>評価</th>
                                 <td>：</td>
-                                <td><?= $total_score ?>点　（<?= $score_count ?>人の評価）</td>
+                                <td><?= $total_score ?>点（<?= round($score_count, 1) ?>人の評価）</td>
                             </tr>
                             <tr>
                                 <th>電話番号</th>
