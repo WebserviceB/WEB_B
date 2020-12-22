@@ -50,13 +50,15 @@ if ($status == false) {
   </header>
   <main>
     <section class="top_text">
-      <h1>yatai map</h1>
-      <p>test test test</p>
-      <div class="event_top">
-        <ul>
-          <li>btn</li>
-          <li>btn</li>
-        </ul>
+      <div class="top_title">
+        <h1>yatai map</h1>
+        <p>test test test</p>
+        <div class="event_top">
+          <ul>
+            <li>btn</li>
+            <li>btn</li>
+          </ul>
+      </div>
       </div>
       <div class="search">
         <div class="search-input">
@@ -96,22 +98,17 @@ if ($status == false) {
       </div>
     </section>
     <section class="main_content">
-      <div class="category_menu">
-        <h1>category</h1>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-      <div class="map_box">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="900" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+      <div data-aos="zoom-in">
+        <div class="map_box">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="1400" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
       </div>
     </section>
+
     <section class="ranking_box">
       <div class="ranking">
-        <h1>ranking</h1>
+        <h1>ランキング</h1>
         <!-- カード -->
         <div class="ranking_card_box">
           <?php foreach ($shops as $shop) : ?>
@@ -146,9 +143,8 @@ if ($status == false) {
       </div>
     </section>
   </main>
-  <footer>
-    <footer></footer>
-  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="top.js"></script>
 </body>

@@ -95,45 +95,50 @@ if ($status == false) {
                 </div>
                 <!-- 店舗写真 -->
                 <div class="info_box">
-                    <img src="<?= $img ?>" alt="">
                     <div class="info_text_box">
-                        <table>
-                            <tr>
-                                <th>評価</th>
-                                <td>：</td>
-                                <td><?= $total_score ?>点（<?= round($score_count, 1) ?>人の評価）</td>
-                            </tr>
-                            <tr>
-                                <th>電話番号</th>
-                                <td>：</td>
-                                <td><?= $tell ?></td>
-                            </tr>
-                            <tr>
-                                <th>住所</th>
-                                <td>：</td>
-                                <td><?= $place ?></td>
-                            </tr>
-                            <tr>
-                                <th>情報</th>
-                                <td>：</td>
-                                <td><?= $info ?></td>
-                            </tr>
-                            <tr>
-                                <th>営業時間</th>
-                                <td>：</td>
-                                <td><?= $time ?></td>
-                            </tr>
-                            <tr>
-                                <th>予算</th>
-                                <td>：</td>
-                                <td><?= $budget ?>円</td>
-                            </tr>
-                        </table>
-                    </div>
+                        <div class="info_text_box_img">
+                            <img src="<?= $img ?>" alt="">
+                        </div>
 
+
+                        <div class="info_text_box_text">
+                            <table>
+                                <tr>
+                                    <th>評価</th>
+                                    <td>：</td>
+                                    <td><?= $total_score ?>点（<?= round($score_count, 1) ?>人の評価）</td>
+                                </tr>
+                                <tr>
+                                    <th>電話番号</th>
+                                    <td>：</td>
+                                    <td><?= $tell ?></td>
+                                </tr>
+                                <tr>
+                                    <th>住所</th>
+                                    <td>：</td>
+                                    <td><?= $place ?></td>
+                                </tr>
+                                <tr>
+                                    <th>情報</th>
+                                    <td>：</td>
+                                    <td><?= $info ?></td>
+                                </tr>
+                                <tr>
+                                    <th>営業時間</th>
+                                    <td>：</td>
+                                    <td><?= $time ?></td>
+                                </tr>
+                                <tr>
+                                    <th>予算</th>
+                                    <td>：</td>
+                                    <td><?= $budget ?>円</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                     <!-- 店舗マップ -->
                     <div class="map_box">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="600" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="900" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
             </section>
