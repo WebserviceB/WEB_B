@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 include('functions.php');
@@ -29,9 +29,9 @@ if ($status == false) {
   // `.=`は後ろに文字列を追加する，の意味
   foreach ($result as $record) {
     $output .= "<a href='shop_profile.php?id={$record["id"]}'><div>";
-    $output .= "<div><img src='{$record["img"]}'></div>";
+    $output .= "<div><img src='../image/{$record["img"]}'></div>";
     $output .= "<div>{$record["name"]}</div>";
-    $output .="<div>{$record["start"]} ~ {$record["end"]}</div>";
+    $output .= "<div>{$record["start"]} ~ {$record["end"]}</div>";
     $output .= "</div></a>";
   }
   // var_dump($output);
@@ -44,14 +44,17 @@ if ($status == false) {
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <?= $output ?>
 </body>
+
 </html>
 
 <!-- 画像、名前、時間 -->

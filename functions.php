@@ -18,7 +18,7 @@ function connect_to_db()
   }
 }
 
-// // ログイン状態のチェック関数
+// ログイン状態のチェック関数
 function check_session_id()
 {
   if (
