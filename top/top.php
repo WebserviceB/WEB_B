@@ -31,120 +31,135 @@ if ($status == false) {
 </head>
 
 <body>
-  <header>
-    <div class="nav">
-      <nav>
-        <ul class="main-nav">
-          <li><a href="#" class="logo">屋台</a></li>
-          <li><a href="#"><span class="material-icons">
-                local_dining
-              </span>食べ物</a></li>
-          <li><a href="#"><span class="material-icons">
-                where_to_vote
-              </span>エリア</a></li>
-          <li><a href="#"><span class="material-icons">
-                login
-              </span>login</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="top_text">
-      <div class="top_title">
-        <h1>yatai map</h1>
-        <p>test test test</p>
-        <div class="event_top">
-          <ul>
-            <li>btn</li>
-            <li>btn</li>
+
+
+  <div class="page">
+    <header>
+      <div class="nav">
+        <nav>
+          <ul class="main-nav">
+            <li><a href="#" class="logo">屋台</a></li>
+
+            <li>
+              <a href="#" class="top_menu">
+                <p class="menu_text"><span class="material-icons">local_dining</span>食べ物</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="top_menu">
+                <p class="menu_text"><span class="material-icons">where_to_vote</span>エリア</p>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="top_menu">
+                <p class="menu_text"><span class="material-icons">login</span>login</p>
+              </a>
+            </li>
           </ul>
-        </div>
+        </nav>
       </div>
-      <div class="search">
-        <div class="search-input">
-          <div class="search_input_box">
-            <form action="">
-              <input class="search_textbox" type="text" />
-              <label class="search-label" for="Username"><span class="material-icons">
-                  search
-                </span>探す</label>
-            </form>
+    </header>
+    <main>
+      <section class="top_text">
+        <div class="top_title">
+          <h1>yatai map</h1>
+          <p>test test test</p>
+          <div class="event_top">
+
+
+
           </div>
         </div>
-    </section>
-    <section class="event">
-      <div class="event_btn">
-        <div class="event_btn_a">
-          <a href=""><span class="material-icons">
-              place
-            </span><br>
-            <p>天神駅から徒歩１０分</p>
-          </a>
-        </div>
-        <div class="event_btn_b">
-          <a href=""><span class="material-icons">
-              rice_bowl
-            </span><br>
-            <p>中洲</p>
-          </a>
-        </div>
-        <div class="event_btn_c">
-          <a href=""><span class="material-icons">
-              star
-            </span><br>
-            <p>隠れ人気店</p>
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="main_content">
-
-      <div data-aos="zoom-in">
-        <div class="map_box">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="1400" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <section class="ranking_box">
-      <div class="ranking">
-        <h1>ランキング</h1>
-        <!-- カード -->
-        <div class="ranking_card_box">
-          <?php foreach ($shops as $shop) : ?>
-            <?php
-            $id = $shop['id'];
-            $name = $shop['name'];
-            $acsess = $shop['place'];
-            $tell = $shop['tell'];
-            $image = $shop['img'];
-            $time = $shop['start'] . '〜' . $shop['end'];
-            if ($shop['scores'] !== '') {
-              $score = $shop['scores'];
-            } else {
-              $score = 0;
-            }
-            ?>
-            <a href="../detail/shop_profile.php?id=<?= $id ?>" class="card_link">
-              <div class="card">
-                <div class="thumb"><img src="../image/<?= $image ?>" alt=""></div>
-                <div class="card_inner">
-                  <h1><?= $name ?></h1>
-                  <p><?= $acsess ?></p>
-                  <p><?= $tell ?></p>
-                  <p><?= $time ?></p>
-                  <span>カテゴリー</span>
-                  <p><?= round($score, 1) ?>点</p>
-                </div>
-              </div>
+        <div class="search">
+          <div class="search-input">
+            <div class="search_input_box">
+              <form action="">
+                <input class="search_textbox" type="text" />
+                <label class="search-label" for="Username"><span class="material-icons">
+                    search
+                  </span>探す</label>
+              </form>
+            </div>
+          </div>
+      </section>
+      <section class="event">
+        <div class="event_btn">
+          <div class="event_btn_a">
+            <a href=""><span class="material-icons">
+                place
+              </span><br>
+              <p>天神駅から徒歩１０分</p>
             </a>
-          <?php endforeach; ?>
+          </div>
+          <div class="event_btn_b">
+            <a href=""><span class="material-icons">
+                rice_bowl
+              </span><br>
+              <p>中洲</p>
+            </a>
+          </div>
+          <div class="event_btn_c">
+            <a href=""><span class="material-icons">
+                star
+              </span><br>
+              <p>隠れ人気店</p>
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+      <section class="main_content">
 
+        <div class="map">
+          <h1>マップで探す</h1>
+          <div data-aos="zoom-in">
+            <div class="map_box">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="1400" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ranking_box">
+        <div class="ranking">
+          <h1>ランキング</h1>
+          <!-- カード -->
+          <div class="ranking_card_box">
+            <?php foreach ($shops as $shop) : ?>
+              <?php
+              $id = $shop['id'];
+              $name = $shop['name'];
+              $acsess = $shop['place'];
+              $tell = $shop['tell'];
+              $image = $shop['img'];
+              $time = $shop['start'] . '〜' . $shop['end'];
+              if ($shop['scores'] !== '') {
+                $score = $shop['scores'];
+              } else {
+                $score = 0;
+              }
+              ?>
+              <a href="../detail/shop_profile.php?id=<?= $id ?>" class="card_link">
+                <div class="card">
+                  <div class="thumb"><img src="../image/<?= $image ?>" alt=""></div>
+                  <div class="card_inner">
+                    <h2><?= $name ?></h2>
+                    <p><?= $acsess ?></p>
+                    <p><?= $tell ?></p>
+                    <p><?= $time ?></p>
+                    <span>カテゴリー</span>
+                    <p><?= round($score, 1) ?>点</p>
+                  </div>
+                </div>
+              </a>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </section>
+    </main>
+    <a href="#" class="scrolltop">
+      top
+    </a>
+  </div>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="top.js"></script>
