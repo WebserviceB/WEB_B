@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .Item{
+  text-decoration: none;
+  /* color: #5bc8ac; */
+  font-size: 18px;
+}
+.Item-Text{
+  position: relative;
+  z-index: 1;
+}
+.Item-Text:after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;/*テキストからの距離*/
+  width: 0%;/*初期状態では下線非表示*/
+  height: 2px;/*下線の高さ*/
+  background: #5bc8ac;/*下線の色*/
+  z-index: -1;
+  transition: all 0.4s;/*アニメーション速度*/
+}
+.Item:hover .Item-Text:after{
+   width: 100%;
+  /* hover時に表示 */
+} 
+
+</style>
+<body>
+
+  <a href="#" class="Item">
+    <span class="Item-Text">下線アニメーション</span>
+  </a>
+  
+</body>
+</html>
