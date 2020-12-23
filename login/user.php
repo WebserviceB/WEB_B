@@ -10,6 +10,8 @@
 
 <body>
 
+  <div class="top_logo"><a href="../top/top.php"><img src="../image/ramenman.jpg" alt="">top</a></div>
+
   <section class="user_create">
     <div class="user_form">
       <div class="form">
@@ -20,7 +22,7 @@
           <p>Email:</p><input type="text" name="email" value="" required>
           <p>password:</p><input type="password" name="password" value="" required>
           <div class="submit">
-          <p><input type="submit" value="登録" id="submit"></p>
+            <p><input type="submit" value="登録" id="submit"></p>
         </form>
 
         <div class="login">

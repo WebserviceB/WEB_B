@@ -79,10 +79,9 @@ if ($status == false) {
     <title><?= $name ?></title>
 </head>
 
-<body>
-    <header>
 
-    </header>
+<body>
+  
     <main>
         <div class="ditail_manu">
             <!-- 詳細カードスタート -->
@@ -189,11 +188,14 @@ if ($status == false) {
                             </p>
                         </p>
                         <p><textarea name="text" id="" cols="30" rows="10" placeholder="本文"></textarea></p>
+
                         <p><button type="submit">レビュー投稿</button></p>
                     </form>
                 </details>
             <?php endif; ?>
-            <a href="../search/search.php" class="back">店舗一覧に戻る</a>
+
+            <div class="search_logo"><a href="../search/search.php"><img src="../image/ramenman.jpg" alt="">店舗一覧へ</a></div>
+
         </div>
     </main>
     <footer>

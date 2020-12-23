@@ -41,9 +41,11 @@ if (!empty($_POST)) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="user.css">
+  <link rel="stylesheet" href="login.css">
   <title>ログイン</title>
 </head>
+
+<div class="top_logo"><a href="../top/top.php"><img src="../image/ramenman.jpg" alt="">top</a></div>
 
 <body>
   <section class="user_create">
@@ -53,9 +55,11 @@ if (!empty($_POST)) {
           <input type="hidden" name="size" value="1000000">
           <p>Email:</p><input type="text" name="email" value="" required>
           <p>password:</p><input type="password" name="password" value="" required>
-          <p><?= $error ?></p>
+
+          <p class="error"><?= $error ?></p>
+
           <div class="submit">
-            <p><input type="submit" value="ログイン" id="submit1"></p>
+            <p><input type="submit" value="ログイン" id="submit"></p>
         </form>
         <div class="login">
           <p><a href="user.php">会員登録はこちらから</a></p>

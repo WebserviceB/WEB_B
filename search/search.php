@@ -31,9 +31,11 @@ if ($status == false) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サーチ</title>
   <link rel="stylesheet" href="search.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
+
   <div class="search_box flex">
     <!-- サーチワード -->
     <section class="info">
@@ -58,8 +60,9 @@ if ($status == false) {
             <li><a href="search.php?keyword=中洲">中洲</a></li>
           </ul>
         </nav>
-      </div>
-      <a href="../top/top.php">TOP</a>
+        <div class="top_logo"><a href="../top/top.php"><img src="../image/ramenman.jpg" alt="">top</a></div>
+        <div class="search_box flex">
+        </div>
     </section>
     <!-- ナビ終わり -->
     <section class="card right">
@@ -77,24 +80,33 @@ if ($status == false) {
         $budget = $shop['budget'];
         $score = $shop['score'];
         ?>
-        <a href="../detail/shop_profile.php?id=<?= $id ?>">
-          <div class="card-item left">
-            <img src="<?= $img ?>" alt="">
-            <div class="right">
-              <h1><?= $name ?></h1>
-              <p>平均単価<span><?= $budget ?>yen</span></p>
-              <p><?= $tell ?></p>
-              <p><?= $category ?></p>
-              <p><?= $time ?></p>
-              <p><?= $place ?></p>
-              <p class="upper in-blo">read more
-                <button class="btn">veiw</button></p>
+
+        <div data-aos="fade-left">
+          <a href="../detail/shop_profile.php?id=<?= $id ?>">
+            <div class="card-item left">
+              <img src="<?= $img ?>" alt="">
+              <div class="right">
+                <h1><?= $name ?></h1>
+                <p>平均単価: <span><?= $budget ?>yen</span></p>
+                <p><?= $category ?></p>
+                <p><?= $time ?></p>
+                <p><?= $place ?></p>
+                <p><?= $tell ?></p>
+                <p class="upper in-blo">read more
+                  <button class="btn">veiw</button></p>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       <?php endforeach; ?>
     </section>
   </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>

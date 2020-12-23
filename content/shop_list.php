@@ -23,9 +23,7 @@ if ($status == false) {
 } else {
   // 正常にSQLが実行された場合は入力ページファイルに移動し，入力ページの処理を実行する
   // fetchAll()関数でSQLで取得したレコードを配列で取得できる
-  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);  // データの出力用変数（初期値は空文字）を設定
-  $output = "";
-  unset($value);
+  $shops = $stmt->fetchAll(PDO::FETCH_ASSOC);  // データ
 }
 ?>
 
@@ -40,34 +38,188 @@ if ($status == false) {
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <!-- トップナビ -->
-    <div class="nav">
-      <nav>
-        <ul class="main-nav">
-          <li><a href="#" class="logo">屋台</a></li>
-          <li><a href="#">top</a></li>
-          <li><a href="#">login</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <!-- カテゴリーメニュー -->
-    <div class="category_menu">
-      <nav>
-        <h1>category</h1>
-        <ul>
-          <li>ラーメン</li>
-          <li>焼き鳥</li>
-          <li>多国籍</li>
-        </ul>
-      </nav>
-    </div>
-    <!-- カード -->
-    <?php foreach ($result as $record) : ?>
+  <!DOCTYPE html>
+  <html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="content.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <!-- トップナビ -->
+      <div class="nav">
+        <nav>
+          <ul class="main-nav">
+            <li><a href="#" class="logo">
+                <p class="item_text">YATAI MAP</p>
+              </a></li>
+            <li><a href="#" class="top_menu">
+                <p class="menu_text"><span class="material-icons">where_to_vote</span>エリア</p>
+              </a></li>
+            <li><a href="#" class="top_menu">
+                <p class="menu_text"><span class="material-icons">where_to_vote</span>TOP</p>
+              </a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- カテゴリーメニュー -->
+      <div class="category_menu">
+        <nav>
+
+          <h1>カテゴリー</h1>
+          <ul>
+            <li><a href="#">ラーメン</a> </li>
+            <li><a href="#">焼き鳥</a> </li>
+            <li><a href="#">多国籍</a> </li>
+            <li><a href="#">その他</a> </li>
+
+
+          </ul>
+        </nav>
+      </div>
+
+
+      <!-- カード -->
       <div class="card_box">
+        <?php foreach ($shops as $shop) : ?>
+          <?php
+          $id = $shop['id'];
+          $name = $shop['name'];
+          $acsess = $shop['place'];
+          $tell = $shop['tell'];
+          $image = $shop['img'];
+          $time = $shop['start'] . '〜' . $shop['end'];
+          if ($shop['scores'] !== '') {
+            $score = $shop['scores'];
+          } else {
+            $score = 0;
+          }
+          ?>
+
+          <!-- カードスタート -->
+          <div class="card">
+            <a href="../detail/shop_profile.php?id=<?= $id ?>" class="card_link">
+              <div class="thumb">
+                <img src="../image/<?= $image ?>" alt="">
+              </div>
+              <div class="card_inner">
+                <h1><?= $name ?></h1>
+                <span>カテゴリー</span>
+                <p>詳細</p>
+                <div>
+                  
+                </div>
+                <div class="inner_text">
+                  <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+                </div>
+                <div class="iine">
+                  <p>いいね</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        <?php endforeach; ?>
         <!-- カードスタート -->
+
+        <div class="card">
+          <a href="item-1" class="card_link">
+            <div class="thumb">
+              <img src="" alt="">
+            </div>
+            <div class="card_inner">
+              <h1>店名</h1>
+              <span>カテゴリー</span>
+              <p>詳細</p>
+
+              <div class="inner_text">
+                <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+              </div>
+              <div class="iine">
+                <p>いいね</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- カードスタート -->
+
+        <div class="card">
+          <a href="item-1" class="card_link">
+            <div class="thumb">
+              <img src="" alt="">
+            </div>
+            <div class="card_inner">
+              <h1>店名</h1>
+              <span>カテゴリー</span>
+              <p>詳細</p>
+
+              <div class="inner_text">
+                <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+              </div>
+              <div class="iine">
+                <p>いいね</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- 終わり -->
+        <!-- カードスタート -->
+
+        <div class="card">
+          <a href="item-1" class="card_link">
+            <div class="thumb">
+              <img src="" alt="">
+            </div>
+            <div class="card_inner">
+              <h1>店名</h1>
+              <span>カテゴリー</span>
+              <p>詳細</p>
+
+              <div class="inner_text">
+                <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+              </div>
+              <div class="iine">
+                <p>いいね</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- 終わり -->
+        <!-- カードスタート -->
+
+        <div class="card">
+          <a href="item-1" class="card_link">
+            <div class="thumb">
+              <img src="" alt="">
+            </div>
+            <div class="card_inner">
+              <h1>店名</h1>
+              <span>カテゴリー</span>
+              <p>詳細</p>
+
+              <div class="inner_text">
+                <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+              </div>
+              <div class="iine">
+                <p>いいね</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- 終わり -->
+        <!-- カードスタート -->
+
         <div class="card">
           <a href="item-1" class="card_link">
             <div class="thumb">
@@ -86,7 +238,7 @@ if ($status == false) {
             </div>
           </a>
         </div>
-      <?php endforeach; ?>
+  
       </div>
       </div>
   </main>

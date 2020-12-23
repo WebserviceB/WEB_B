@@ -11,6 +11,11 @@
     --clr-warning: rgb(99, 36, 36);
 }
 
+body {
+  background: rgb(135, 61, 8);
+
+}
+
 main {
     margin: 0;
     height: auto;
@@ -19,6 +24,8 @@ main {
     justify-content: center;
 }
 
+
+
 .main-nav {
     display: -webkit-flex;
     display: flex;
@@ -26,6 +33,26 @@ main {
 
 .main-nav li:first-child {
     margin-right: auto;
+}
+
+.item_text {
+  font-size: 40px;
+  font-weight: bold;
+  animation: key1 .3s ease infinite alternate;
+  letter-spacing: 0.15em;
+  -webkit-text-stroke: 1.3px #fedc2f;
+  color: transparent;
+
+}
+
+@keyframes key1 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 .main-nav a {
