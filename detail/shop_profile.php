@@ -193,7 +193,7 @@ if ($status == false) {
                     </form>
                 </details>
             <?php endif; ?>
-            <a href="../search/seaarch.php" class="back">店舗一覧に戻る</a>
+            <a href="../search/search.php" class="back">店舗一覧に戻る</a>
         </div>
     </main>
     <footer>
