@@ -38,7 +38,9 @@ if ($status == false) {
       <div class="nav">
         <nav>
           <ul class="main-nav">
-            <li><a href="#" class="logo">屋台</a></li>
+            <li>
+             
+            </li>
 
             <li>
               <a href="#" class="top_menu">
@@ -59,24 +61,36 @@ if ($status == false) {
         </nav>
       </div>
     </header>
+
     <main>
       <section class="top_text">
-        <div class="top_title">
-          <h1>yatai map</h1>
-          <p>test test test</p>
-        </div>
-        <div class="search">
-          <div class="search-input">
-            <div class="search_input_box">
-              <form action="../search/search.php" method="GET">
-                <input class="search_textbox" type="text" name="keyword">
-                <label class="search-label" for="Username"><span class="material-icons">search</span>探す</label>
-                <button type="submit">検索</button>
-              </form>
-            </div>
+
+        <div class="main_container">
+          <div class="main_inner">
+            <p class="main_inner_text">
+              FUKUOKA <p class="item_text">YATAI MAP</p>
+              <div class="search_input_box">
+                <form action="">
+                  <input class="search_textbox" type="text" />
+                  <label class="search-label" for="Username"><span class="material-icons">
+                      search
+                    </span>探す</label>
+                </form>
+              </div>
+
+            </p>
           </div>
+          <div class="main_img"></div>
+          <div class="main_mask"></div>
         </div>
       </section>
+
+
+
+
+
+
+   
       <section class="event">
         <div class="event_btn">
           <div class="event_btn_a">
