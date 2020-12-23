@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include('functions.php');
+include('../functions.php');
 check_session_id();
 
 // DB接続
@@ -42,6 +42,7 @@ if ($status == false) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -49,13 +50,173 @@ if ($status == false) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="content.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-  <?= $output ?>
+  <header>
+    <!-- トップナビ -->
+    <div class="nav">
+      <nav>
+        <ul class="main-nav">
+          <li><a href="#" class="logo">屋台</a></li>
+          <li><a href="#">top</a></li>
+          <li><a href="#">login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <!-- カテゴリーメニュー -->
+    <div class="category_menu">
+      <nav>
+        <h1>category</h1>
+        <ul>
+          <li>ラーメン</li>
+          <li>焼き鳥</li>
+          <li>多国籍</li>
+        </ul>
+      </nav>
+    </div>
+    <!-- カード -->
+    <div class="card_box">
+      <!-- カードスタート -->
+      <div class="card">
+        <a href="item-1" class="card_link">
+          <div class="thumb">
+            <img src="" alt="">
+          </div>
+          <div class="card_inner">
+            <h1>店名</h1>
+            <span>カテゴリー</span>
+            <p>詳細</p>
+            <div class="inner_text">
+              <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+            </div>
+            <div class="iine">
+              <p>いいね</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- カードスタート -->
+      <div class="card">
+        <a href="item-1" class="card_link">
+          <div class="thumb">
+            <img src="" alt="">
+          </div>
+          <div class="card_inner">
+            <h1>店名</h1>
+            <span>カテゴリー</span>
+            <p>詳細</p>
+
+            <div class="inner_text">
+              <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+            </div>
+            <div class="iine">
+              <p>いいね</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- カードスタート -->
+      <div class="card">
+        <a href="item-1" class="card_link">
+          <div class="thumb">
+            <img src="" alt="">
+          </div>
+          <div class="card_inner">
+            <h1>店名</h1>
+            <span>カテゴリー</span>
+            <p>詳細</p>
+
+            <div class="inner_text">
+              <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+            </div>
+            <div class="iine">
+              <p>いいね</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- 終わり -->
+      <!-- カードスタート -->
+
+      <div class="card">
+        <a href="item-1" class="card_link">
+          <div class="thumb">
+            <img src="" alt="">
+          </div>
+          <div class="card_inner">
+            <h1>店名</h1>
+            <span>カテゴリー</span>
+            <p>詳細</p>
+
+            <div class="inner_text">
+              <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+            </div>
+            <div class="iine">
+              <p>いいね</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- 終わり -->
+      <!-- カードスタート -->
+
+      <div class="card">
+        <a href="item-1" class="card_link">
+          <div class="thumb">
+            <img src="" alt="">
+          </div>
+          <div class="card_inner">
+            <h1>店名</h1>
+            <span>カテゴリー</span>
+            <p>詳細</p>
+
+            <div class="inner_text">
+              <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+            </div>
+            <div class="iine">
+              <p>いいね</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- 終わり -->
+      <!-- カードスタート -->
+
+      <div class="card">
+        <a href="item-1" class="card_link">
+          <div class="thumb">
+            <img src="" alt="">
+          </div>
+          <div class="card_inner">
+            <h1>店名</h1>
+            <span>カテゴリー</span>
+            <p>詳細</p>
+            <div class="inner_text">
+              <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+            </div>
+            <div class="iine">
+              <p>いいね</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- 終わり -->
+
+    </div>
+    </div>
+
+  </main>
+
 </body>
 
 </html>
 
-<!-- 画像、名前、時間 -->
-<
