@@ -6,10 +6,8 @@
 }
 
 body {
-  background: rgb(253, 246, 179)
+  background: rgb(142, 59, 0)
 }
-
-
 
 .page {
   position: relative;
@@ -25,7 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #5bc8ac;
+  background: #e5ae39;
   color: #fff;
   text-decoration: none;
   opacity: 0;
@@ -37,6 +35,9 @@ body {
   transition: all 0.65s;
 }
 
+.nav {
+  margin-bottom: 10px;
+}
 
 .main-nav {
   display: -webkit-flex;
@@ -53,7 +54,7 @@ body {
 }
 
 .main-nav a {
-  color: #333;
+  color: rgb(249, 239, 239);
   margin: 10px;
   border-radius: 5px;
   display: block;
@@ -62,12 +63,31 @@ body {
 }
 
 .main-nav li {
-  color: #333;
+  color: rgb(149, 88, 88);
+}
+
+.item_text {
+  font-size: 70px;
+  font-weight: bold;
+  color: rgb(251, 200, 59);
+  margin: 40px;
+  margin-left: 300px;
+  animation: key1 .3s ease infinite alternate;
+}
+
+@keyframes key1 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
 }
 
 .top_menu {
   text-decoration: none;
-  color: #303030;
+  color: #c3c1c1;
   font-size: 16px;
 }
 
@@ -94,7 +114,7 @@ body {
 
 .menu_text span {
   font-size: 20px;
-  color: brown;
+  color: rgb(246, 184, 60);
 }
 
 
@@ -103,44 +123,16 @@ main {
   margin: 0 auto;
 }
 
-.top_text {
+/* .top_text {
   height: 600px;
   width: 100%;
   padding: 30px;
-  background: darkgray;
   color: #f4f4f4;
   margin-bottom: 40px;
-  background-size: cover;
-  background-image: url(wazzega_13.jpg); 
-  opacity: 0.6;
   box-shadow: 0 10px 20px 0 rgb(141, 85, 1);
-  /* /* border-radius: 5px; */
-  margin-bottom: 110px;
 
-}
+} */
 
-.top_title {
-  width: 70%;
-  margin: 0 auto;
-  margin-left: 40px;
-  margin-top: 20px;
-  
-
-}
-
-
-
-.top_text h1 {
-  font-size: 70px;
-  font-weight: bold;
-
-}
-
-.top_text p {
-  font-size: 20px;
-  /* margin-left: 80px; */
-  font-weight: bold;
-}
 
 .event_top {
   /* margin-left: 80px; */
@@ -168,12 +160,11 @@ main {
   position: relative;
   height: 30%;
   width: 100%;
-  /* background-color: #3cad7e; */
   font-family: 'Arial', sans-serif;
 
 }
 
-.search_input h1 {
+.search_input {
   color: #fff;
   text-transform: uppercase;
   text-align: center;
@@ -182,9 +173,10 @@ main {
 
 .search_input_box {
   position: relative;
-  width: 500px;
+  width: 300px;
   height: 100px;
   margin: 0 auto;
+  margin-left: 70px;
 }
 
 .search-label {
@@ -219,7 +211,7 @@ main {
   outline: none;
 }
 
-.main_content {
+.main_container {
   width: 100%;
 }
 
@@ -232,7 +224,7 @@ main {
   margin: 0 auto;
   margin-bottom: 40px;
   letter-spacing: 0.15em;
-  -webkit-text-stroke: 1.3px #5bc8ac;
+  -webkit-text-stroke: 1.3px #f1f4ef;
 
   color: transparent;
   font-size: 40px;
@@ -324,7 +316,7 @@ main {
 .ranking h1 {
   margin-bottom: 50px;
   letter-spacing: 0.15em;
-  -webkit-text-stroke: 1.3px #5bc8ac;
+  -webkit-text-stroke: 1.3px #f5f9f8;
 
   color: transparent;
   font-size: 40px;
@@ -414,4 +406,70 @@ footer {
   background: #a0a0a0;
   width: 100%;
   height: 100px;
+}
+
+
+.main_container {
+  position: relative;
+  height: 85vh;
+  margin-bottom: 110px;
+  width: 90%;
+}
+
+
+.main_inner {
+  position: absolute;
+  top: 50%;
+  left: 74.3%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  z-index: 2;
+
+}
+
+/* 
+@media screen and (max-width: 768px) {
+  .Hero-Inner {
+    left: inherit;
+    right: 30px;
+    width: 249px;
+    transform: translateY(-50%);
+  }
+} */
+
+.main_inner_text {
+  letter-spacing: 0.15em;
+  color: rgb(212, 212, 212);
+  font-size: 64px;
+  font-weight: bold;
+  margin-left: 100px;
+}
+
+/* @media screen and (max-width: 768px) {
+  .Hero-Inner-Headline {
+    font-size: 36px;
+  }
+} */
+
+.main_img {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  background: url("wazzega_13.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 60%;
+  height: 95%;
+  z-index: 1;
+}
+
+.main_mask {
+  position: absolute;
+  top: -20px;
+  right: 70px;
+  background: rgba(54, 2, 2, 0.3);
+  background-position: center;
+  background-size: cover;
+  width: 60%;
+  height: 90%;
 }
