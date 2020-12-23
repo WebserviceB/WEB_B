@@ -125,11 +125,6 @@ main {
   margin-top: 30px;
 }
 
-
-.event_top {
-  /* margin-left: 80px; */
-}
-
 .event_top ul {
   display: flex;
   list-style: none;
