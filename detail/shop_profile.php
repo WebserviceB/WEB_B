@@ -3,9 +3,9 @@ session_start();
 include("../functions.php");
 $pdo = connect_to_db();
 
-$id = 10;  //テスト用   
+// $id = 10;  //テスト用   
 $member_id = 2;  //テスト用
-// $id = $_GET['id];  //本番はこっち
+$id = $_GET['id'];  //本番はこっち
 // $member_id = $_SESSION['id'];  //本番はこっち
 
 //店舗情報のデータを持ってくる処理
@@ -56,8 +56,13 @@ if ($status == false) {
     exit();
 } else {
     $scores = $stmt->fetch(PDO::FETCH_ASSOC);
-    $total_score = $scores['SUM(score)'] / $scores['COUNT(score)'];
-    $score_count = $scores['COUNT(score)'];
+    if ($scores['COUNT(score)'] > 0) {
+        $total_score = $scores['SUM(score)'] / $scores['COUNT(score)'];
+        $score_count = $scores['COUNT(score)'];
+    } else {
+        $total_score = 0;
+        $score_count = 0;
+    }
 };
 
 
@@ -70,67 +75,82 @@ if ($status == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="detail.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title><?= $name ?></title>
 </head>
 
 <body>
     <header>
-        <div class="category_menu_btn">
-            <button>登録</button>
-        </div>
+
     </header>
     <main>
         <div class="ditail_manu">
             <!-- 詳細カードスタート -->
             <section class="info">
                 <div class="info_text">
-                    <h1><?= $name ?></h1>
-                    <p>エリア</p>
-                    <p>カテゴリー</p>
+                    <div class="info_title_name">
+                        <span>店舗名</span>
+                        <h1><?= $name ?></h1>
+                    </div>
+                    <div class="info_inner">
+                        <ul>
+                            <li><span>カテゴリ: </span><p>ラーメン</p></li>
+                           
+                        </ul>
+                    </div>
                 </div>
                 <!-- 店舗写真 -->
                 <div class="info_box">
-                    <img src="<?= $img ?>" alt="">
                     <div class="info_text_box">
-                        <table>
-                            <tr>
-                                <th>評価</th>
-                                <td>：</td>
-                                <td><?= $total_score ?>点　（<?= $score_count ?>人の評価）</td>
-                            </tr>
-                            <tr>
-                                <th>電話番号</th>
-                                <td>：</td>
-                                <td><?= $tell ?></td>
-                            </tr>
-                            <tr>
-                                <th>住所</th>
-                                <td>：</td>
-                                <td><?= $place ?></td>
-                            </tr>
-                            <tr>
-                                <th>情報</th>
-                                <td>：</td>
-                                <td><?= $info ?></td>
-                            </tr>
-                            <tr>
-                                <th>営業時間</th>
-                                <td>：</td>
-                                <td><?= $time ?></td>
-                            </tr>
-                            <tr>
-                                <th>予算</th>
-                                <td>：</td>
-                                <td><?= $budget ?>円</td>
-                            </tr>
-                        </table>
-                    </div>
+                        <div class="info_text_box_img">
+                            <div data-aos="zoom-in">
+                                <img src="<?= $img ?>" alt="">
+                            </div>
+                            </div>
 
-                    <!-- 店舗マップ -->
-                    <div class="map_box">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="600" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+                            <div class="info_text_box_text">
+                                <table>
+                                    <tr>
+                                        <th>評価</th>
+                                        <td>：</td>
+                                        <td><?= $total_score ?>点（<?= round($score_count, 1) ?>人の評価）</td>
+                                    </tr>
+                                    <tr>
+                                        <th>電話番号</th>
+                                        <td>：</td>
+                                        <td><?= $tell ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>住所</th>
+                                        <td>：</td>
+                                        <td><?= $place ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>情報</th>
+                                        <td>：</td>
+                                        <td><?= $info ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>営業時間</th>
+                                        <td>：</td>
+                                        <td><?= $time ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>予算</th>
+                                        <td>：</td>
+                                        <td><?= $budget ?>円</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- 店舗マップ -->
+                        <div class="map_box">
+                            <div data-aos="zoom-in">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="900" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
                     </div>
-                </div>
             </section>
 
             <!-- レビュー -->
@@ -177,6 +197,9 @@ if ($status == false) {
         <a href="shoplist.php">一覧に戻る</a>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="detail.js"></script>
 </body>
 
 </html>
