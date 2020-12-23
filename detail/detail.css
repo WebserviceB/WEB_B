@@ -79,22 +79,28 @@ body {
     display: flex;
 }
 
+.info_text_box table {
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
 .info_text_box_img {
-    width: 50%;
+    width: 65%;
     margin: 60px 0px;
 }
 
 .info_text_box_img img {
     width: 100%;
     height: auto;
-    border: 1px solid black;
+    border: 1px solid rgb(249, 239, 40);
     margin: 0 auto;
+    box-shadow: 5px 5px 5px 5px lightgray;
     /* margin-top: 40px; */
 }
 
 .info_text_box_text {
     margin-top: 30px;
-    width: 50%;
+    width: 35%;
     padding: 40px;
 }
 
@@ -136,4 +142,21 @@ body {
 .material-icons {
     font-size: 20px;
     color: rgb(183, 3, 3);
+}
+
+
+@media screen and (max-width: 400px) {
+
+
+.ditail_manu {
+        background: #fff;
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        border-radius: 5px;
+        box-shadow: 0 10px 20px 0 darkgray;
+    }
+
 }
