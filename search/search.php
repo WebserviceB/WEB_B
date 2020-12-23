@@ -3,6 +3,7 @@ session_start();
 include("../functions.php");
 $pdo = connect_to_db();
 
+//検索 name,place,category から部分一致する店舗を取得
 $keyword = $_GET['keyword'];
 date_default_timezone_set('Asia/Tokyo');
 $time = date('Y/n/d/H:i');
@@ -10,7 +11,6 @@ $sql = 'SELECT * FROM shop WHERE name LIKE :key or place LIKE :key or category L
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':key', '%' . $keyword . '%', PDO::PARAM_STR);
 $status = $stmt->execute();
-
 
 if ($status == false) {
   $error = $stmt->errorInfo();
@@ -21,7 +21,6 @@ if ($status == false) {
   $shops = $stmt->fetchall(PDO::FETCH_ASSOC);
 };
 
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -29,13 +28,12 @@ if ($status == false) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>サーチ</title>
   <link rel="stylesheet" href="search.css">
 </head>
 
 <body>
   <div class="search_box flex">
-
     <!-- サーチワード -->
     <section class="info">
       <div class="info_text">
@@ -47,7 +45,7 @@ if ($status == false) {
         <p><?= $keyword ?></p>
       </div>
 
-      <!-- なび -->
+      <!-- ナビ -->
       <div class="category_menu">
         <nav>
           <h1>キーワード</h1>
@@ -83,9 +81,7 @@ if ($status == false) {
             <img src="<?= $img ?>" alt="">
             <div class="right">
               <h1><?= $name ?></h1>
-              <p>平均単価
-                <span><?= $budget ?>yen</span>
-              </p>
+              <p>平均単価<span><?= $budget ?>yen</span></p>
               <p><?= $tell ?></p>
               <p><?= $category ?></p>
               <p><?= $time ?></p>
@@ -98,8 +94,6 @@ if ($status == false) {
       <?php endforeach; ?>
     </section>
   </div>
-
-
 </body>
 
 </html>

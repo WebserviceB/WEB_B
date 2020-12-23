@@ -3,7 +3,7 @@ session_start();
 include("../functions.php");
 $pdo = connect_to_db();
 
-//店舗情報のデータを持ってくる処理
+//店舗情報のデータを持ってくる処理 スコアが高い順に３店舗まで
 $sql = 'SELECT * FROM shop LEFT OUTER JOIN 
 (SELECT SUM(score)/COUNT(score) AS scores ,shop_id FROM posts GROUP BY shop_id) AS scores 
 ON shop.id=scores.shop_id ORDER BY scores DESC LIMIT 3';
@@ -18,32 +18,30 @@ if ($status == false) {
   $shops = $stmt->fetchall(PDO::FETCH_ASSOC);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>トップページ</title>
   <link rel="stylesheet" href="top.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
-
-
   <div class="page">
     <header>
       <div class="nav">
         <nav>
           <ul class="main-nav">
             <li>
-
             </li>
             <li>
-              <a href="#" class="top_menu">
-                <p class="menu_text"><span class="material-icons">local_dining</span>食べ物</p>
+              <a href="../search/search.php" class="top_menu">
+                <p class="menu_text"><span class="material-icons">local_dining</span>一覧</p>
               </a>
             </li>
             <li>
@@ -52,7 +50,7 @@ if ($status == false) {
               </a>
             </li>
             <li>
-              <a href="#" class="top_menu">
+              <a href="../login/login.php" class="top_menu">
                 <p class="menu_text"><span class="material-icons">login</span>login</p>
               </a>
             </li>
@@ -60,10 +58,8 @@ if ($status == false) {
         </nav>
       </div>
     </header>
-
     <main>
       <section class="top_text">
-
         <div class="main_container">
           <div class="main_inner">
             <p class="main_inner_text">
@@ -76,14 +72,12 @@ if ($status == false) {
                     </span>探す</label>
                 </form>
               </div>
-
             </p>
           </div>
           <div class="main_img"></div>
           <div class="main_mask"></div>
         </div>
       </section>
-
       <section class="event">
         <div class="event_btn">
           <div class="event_btn_a">
@@ -103,7 +97,6 @@ if ($status == false) {
           </div>
         </div>
       </section>
-
       <section class="main_content">
         <div class="map">
           <h1>マップで探す</h1>
@@ -112,7 +105,6 @@ if ($status == false) {
           </div>
         </div>
       </section>
-
       <section class="ranking_box">
         <div class="ranking">
           <h1>ランキング</h1>
