@@ -43,8 +43,8 @@ if ($status == false) {
             </li>
 
             <li>
-              <a href="#" class="top_menu">
-                <p class="menu_text"><span class="material-icons">local_dining</span>食べ物</p>
+              <a href="../content/shop_list.php" class="top_menu">
+                <p class="menu_text"><span class="material-icons">local_dining</span>店舗一覧</p>
               </a>
             </li>
             <li>
@@ -84,25 +84,6 @@ if ($status == false) {
         </div>
       </section>
 
-
-
-
-
-
-      <!-- <section class="top_text">
-
-        <div class="search">
-          <div class="search-input">
-            <div class="search_input_box">
-              <form action="">
-                <input class="search_textbox" type="text" />
-                <label class="search-label" for="Username"><span class="material-icons">
-                    search
-                  </span>探す</label>
-              </form>
-            </div>
-          </div>
-      </section> -->
 
       <section class="event">
         <div class="event_btn">

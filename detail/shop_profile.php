@@ -3,9 +3,9 @@ session_start();
 include("../functions.php");
 $pdo = connect_to_db();
 
-// $id = 10;  //テスト用   
+$id = 10;  //テスト用   
 $member_id = 2;  //テスト用
-$id = $_GET['id'];  //本番はこっち
+// $id = $_GET['id'];  //本番はこっち
 // $member_id = $_SESSION['id'];  //本番はこっち
 
 //店舗情報のデータを持ってくる処理
@@ -109,9 +109,9 @@ if ($status == false) {
                             </div>
 
 
-                            <div class="info_text_box_text">
-                                <table>
-                                    <tr>
+            <div class="info_text_box_text">
+                                 <table>
+                                      <tr>
                                         <th>評価</th>
                                         <td>：</td>
                                         <td><?= $total_score ?>点（<?= round($score_count, 1) ?>人の評価）</td>

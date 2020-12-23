@@ -11,6 +11,11 @@
   --clr-warning: rgb(99, 36, 36);
 }
 
+body {
+  background: rgb(135, 61, 8);
+
+}
+
 main {
   margin: 0;
   height: auto;
@@ -18,54 +23,107 @@ main {
   display: flex;
   justify-content: center;
   /* align-items: center; */
-
 }
+
+
 
 .main-nav {
   display: -webkit-flex;
   display: flex;
+  list-style: none;
 }
 
 .main-nav li:first-child {
   margin-right: auto;
 }
 
+.item_text {
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(251, 200, 59);
+  animation: key1 .3s ease infinite alternate;
+}
+
+@keyframes key1 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
 .main-nav a {
   margin: 10px;
   border-radius: 5px;
-  background: var(--clr-primary);
-  color: var(--clr-light);
   display: block;
   padding: 15px;
   text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.main-nav {
-  list-style: none;
+.top_menu {
+  text-decoration: none;
+  color: #c3c1c1;
+  font-size: 16px;
+
 }
 
-.main-nav .logo {
-  background: #4584b1;
+.menu_text {
+  position: relative;
+  z-index: 1;
+}
+
+.menu_text:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0%;
+  height: 2px;
+  background: #e67f02;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.top_menu:hover .menu_text:after {
+  width: 100%;
+}
+
+.menu_text span {
+  font-size: 20px;
+  color: rgb(246, 184, 60);
 }
 
 .category_menu {
   width: 20%;
   margin-left: 30px;
   height: 900px;
+  color: #fff;
+  margin-top: 40px;
 }
 
 .category_menu h1 {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   font-size: 30px;
+  letter-spacing: 0.15em;
+  -webkit-text-stroke: 1.3px #f5f9f8;
+  color: transparent;
+
 }
 
 .category_menu ul {
   list-style: square;
   margin-left: 30px;
+  
 }
 
 .category_menu li {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .card_box {
@@ -79,6 +137,7 @@ main {
   padding-left: 50px;
   border-radius: 5px;
   box-shadow: 0 10px 10px 0 rgb(168, 168, 168);
+  background-color: #fff;
 }
 
 .thumb {
@@ -135,7 +194,7 @@ main {
 .card_inner h1 {
   font-size: 18px;
   margin: 0;
-  color: #333;
+  color: rgb(54, 53, 53);
 }
 
 .card_inner span {
@@ -147,7 +206,7 @@ main {
 }
 
 .inner_text {
-  color: #333;
+  color: rgb(83, 81, 81);
   height: 100px;
 }
 

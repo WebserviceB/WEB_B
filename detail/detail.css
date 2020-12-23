@@ -8,6 +8,10 @@ header {
     height: 80px;
 }
 
+body {
+    background: rgb(142, 59, 0);
+}
+
 .ditail_manu {
     background: #fff;
     width: 80%;
@@ -38,7 +42,7 @@ header {
 .info_text span {
     letter-spacing: 0.15em;
     -webkit-text-stroke: 1px #5bc8ac;
-    
+
     color: transparent;
     font-size: 30px;
 }
@@ -46,24 +50,28 @@ header {
 .info_title_name {
     width: 70%;
 }
- .info_inner {
+
+.info_inner {
     width: 30%;
     height: 100px;
     margin-left: 90px;
     margin-top: 40px;
-    
+
 }
-.info_inner li{
+
+.info_inner li {
     display: flex;
-    
+
 }
-.info_inner p{
+
+.info_inner p {
     font-size: 18px;
     font-weight: bold;
-   
+
 }
- .info_inner span {
-   font-size: 18px;
+
+.info_inner span {
+    font-size: 18px;
 }
 
 .info_text_box {
@@ -89,6 +97,7 @@ header {
     width: 50%;
     padding: 40px;
 }
+
 
 .review {
     box-shadow: 5px 5px 5px 5px lightgray;

@@ -54,22 +54,34 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-  <form action="" method="POST">
-    <fieldset>
-      <legend>ログイン画面</legend>
-      <div>
-        メールアドレス: <input type="email" name="email" required>
+
+
+  <section class="user_create">
+    <div class="user_form">
+      <div class="form">
+
+        <form action="" method="POST">
+          <fieldset>
+            <legend>ログイン画面</legend>
+            <div>
+              メールアドレス: <input type="email" name="email" required>
+            </div>
+            <div>
+              パスワード: <input type="text" name="password" required>
+            </div>
+            <p class="error"><?= $error ?></p>
+            <div>
+              <button>Login</button>
+            </div>
+            <a href="createuser.php">ユーザー登録画面</a>
+          </fieldset>
+        </form>
+
       </div>
-      <div>
-        パスワード: <input type="text" name="password" required>
-      </div>
-      <p class="error"><?= $error ?></p>
-      <div>
-        <button>Login</button>
-      </div>
-      <a href="createuser.php">ユーザー登録画面</a>
-    </fieldset>
-  </form>
+    </div>
+  </section>
+
+
 </body>
 
 </html>
