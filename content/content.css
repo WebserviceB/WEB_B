@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --clr-primary: rgb(54, 112, 199);
+    --clr-light: #f4f4f4;
+    --clr-dark: #333;
+    --clr-warning: rgb(99, 36, 36);
+}
+
+main {
+    margin: 0;
+    height: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.main-nav li:first-child {
+    margin-right: auto;
+}
+
+.main-nav a {
+    margin: 10px;
+    border-radius: 5px;
+    background: var(--clr-primary);
+    color: var(--clr-light);
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.main-nav {
+    list-style: none;
+}
+
+.main-nav .logo {
+    background: #4584b1;
+}
+
+.category_menu {
+    width: 20%;
+    margin-left: 30px;
+    height: 900px;
+}
+
+.category_menu h1 {
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.category_menu ul {
+    list-style: square;
+    margin-left: 30px;
+}
+
+.category_menu li {
+    margin-bottom: 20px;
+}
+
+.card_box {
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-content: flex-start;
+    /* justify-content: space-between; */
+    padding: 30px;
+    padding-left: 50px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px 0 rgb(168, 168, 168);
+}
+
+.thumb {
+    width: 100%;
+    height: 180px;
+    background: chocolate;
+}
+
+.card {
+    width: 220px;
+    height: auto;
+    margin: 20px;
+    margin-bottom: 40px;
+}
+
+.card_link {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    color: #4584b1;
+    /* transition: all .1s easy-in; */
+}
+
+.card_link:hover {
+    top: -2;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card_inner {
+    padding: 10px;
+    display: flex;
+    font-size: 12px;
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.card_inner p {
+    flex: 1;
+    line-height: 1.4;
+}
+
+.card_inner h1 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+.card_inner span {
+    font-size: 10px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #999;
+    text-transform: uppercase;
+}
+
+.inner_text {
+    color: #333;
+    height: 100px;
+}
+
+.iine {
+    font-size: 8px;
+    text-align: right;
+}

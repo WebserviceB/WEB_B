@@ -1,0 +1,224 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.search_box {
+    background: rgb(252, 215, 123);
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    flex-wrap: wrap;
+    display: inline-block;
+    flex-direction: row;
+}
+
+button {
+    padding: 15px 22px;
+    color: #fff;
+    background-color: orange;
+    border: 0;
+    border-radius: 3px;
+    transition: all .3s ease-in-out;
+}
+
+button:hover {
+    border-bottom: 2.5px solid #777;
+}
+
+.info {
+    float: left;
+    width: 20%;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding: 30px;
+    background: #fff;
+    text-align: center;
+    position: fixed;
+}
+
+.info_text {
+    border-bottom: .5px solid #ddd;
+    margin-right: 10px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.info_text h1 {
+    margin: 0;
+    text-align: left;
+    font-family: serif;
+    font-size: 18px;
+    color: gray;
+}
+
+.info_text p {
+    margin: 0;
+    padding-top: left;
+    font-family: "Times New Romans ";
+    font-size: 20px;
+    color: rgb(111, 111, 111);
+    font-weight: bold;
+}
+
+.category_menu {
+    text-align: left;
+}
+
+.category_menu h1 {
+    font-family: "Times New Romans ";
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+
+.category_menu ul {
+    list-style: square;
+}
+
+.category_menu li {
+    width: 80px;
+}
+
+.top_menu {
+    text-decoration: none;
+    color: #303030;
+    font-size: 16px;
+}
+
+.menu_text {
+    position: relative;
+    z-index: 1;
+}
+
+.menu_text:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0%;
+    height: 2px;
+    background: #e67f02;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.top_menu:hover .menu_text:after {
+    width: 100%;
+}
+
+.menu_text span {
+    font-size: 20px;
+    color: brown;
+}
+
+.card {
+    width: 70%;
+    margin-right: 20px;
+    margin-bottom: 40px;
+    margin-left: 60px;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.card-item {
+    background-color: #fff;
+    width: 780px;
+    margin-top: 30px;
+    position: relative;
+    padding-top: 30px;
+    left: 150px;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.card img {
+    display: inline-block;
+    position: absolute;
+    /* float: left; */
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f0be0f;
+    margin-top: 60px;
+    margin-right: 5px;
+    right: 600px;
+}
+
+.card .card-item div {
+    text-align: left;
+    width: 80%;
+}
+
+.card h1 {
+    text-transform: capitalize;
+    margin-left: 50px;
+}
+
+.card .colored {
+    color: gold;
+    margin-right: 80px;
+}
+
+.card .colored span {
+    font-size: 20px;
+}
+
+.card.colored span:last-child {
+    font-size: 14px;
+    color: #777;
+    margin-left: 20px;
+}
+
+.card a {
+    color: #303030;
+}
+
+.card hr {
+    font-size: .5px;
+    color: #dec4c480;
+    width: 25%;
+    float: left;
+    margin-left: 45px;
+}
+
+.card-item p:nth-of-type(2) {
+    color: #c1c3ad;
+    margin-top: -15px;
+    margin-left: 50px
+}
+
+.card-item p {
+    margin-left: 50px;
+}
+
+.upper {
+    margin-left: 27px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 5px
+}
+
+.card ul {
+    list-style: square;
+    padding-top: 20px;
+    margin-left: 40px;
+}
+
+.card ul li {
+    text-align: left
+}
