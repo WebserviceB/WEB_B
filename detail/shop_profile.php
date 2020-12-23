@@ -65,9 +65,8 @@ if ($status == false) {
         $score_count = 0;
     }
 };
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -109,8 +108,6 @@ if ($status == false) {
                                 <img src="<?= $img ?>" alt="">
                             </div>
                         </div>
-
-
                         <div class="info_text_box_text">
                             <table cellspacing="14 15">
                                 <tr>
@@ -152,7 +149,6 @@ if ($status == false) {
                     </div>
                 </div>
             </section>
-
             <!-- レビュー -->
             <section class="review">
                 <!-- レビューボックス -->

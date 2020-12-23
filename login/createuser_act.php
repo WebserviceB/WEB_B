@@ -3,20 +3,18 @@
 if (
   !isset($_POST['name']) || $_POST['name'] == '' ||
   !isset($_POST['email']) || $_POST['email'] == '' ||
-  !isset($_POST['password']) || $_POST['password'] == '' 
+  !isset($_POST['password']) || $_POST['password'] == ''
 ) {
   // 項目が入力されていない場合はここでエラーを出力し，以降の処理を中止する
   echo json_encode(["error_msg" => "no input"]);
   exit();
-}
+};
 
 // 受け取ったデータを変数に入れる
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// DB接続の設定
-// DB名は`gsacf_x00_00`にする
 include('../functions.php');
 $pdo = connect_to_db();
 
