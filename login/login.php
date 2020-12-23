@@ -27,17 +27,15 @@ if (!empty($_POST)) {
   } else {
     $val = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$val) { // 該当データがないときはログインページへのリンクを表示
-      // echo "<p>ログイン情報に誤りがあります.</p>";
       $error = "入力内容が間違っています。";
-      // echo '<a href="login.php">戻る</a>';
-      // exit();
     } else {
       $_SESSION = array();
       $_SESSION["session_id"] = session_id();
       $_SESSION["id"] = $val["id"];
       $_SESSION["name"] = $val["name"];
       $_SESSION["email"] = $val["email"];
-      header('Location:../content/shop_list.php');
+
+      header('Location:../top/top.php');
     }
   }
 }
