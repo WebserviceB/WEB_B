@@ -47,11 +47,12 @@ if ($status == false) {
             now.entities.push(pin);
         };
 
-        function generateInfobox(lat, lng, now) {
+        function generateInfobox(lat, lng, title, tell, now) {
             const location = new Microsoft.Maps.Location(lat, lng)
+            console.log(title);
             let infobox = new Microsoft.Maps.Infobox(location, {
-                title: '店舗名',
-                description: 'テキスト'
+                title: title,
+                description: tell
             });
             infobox.setMap(now);
         };
@@ -67,17 +68,15 @@ if ($status == false) {
                 zoom: 16,
             });
 
-            pushPin(lat, lng, map);
-            generateInfobox(lat, lng, map);
             <?php foreach ($shops as $shop) : ?>
                 <?php
                 $lat = $shop['lat'];
                 $lng = $shop['lng'];
-                $name = $shop['name'];
-                $tell = $shop['tell'];
+                $name = "'" . $shop['name'] . "'";
+                $tell = "'" . $shop['tell'] . "'";
                 ?>
                 pushPin(<?= $lat ?>, <?= $lng ?>, map);
-                generateInfobox(<?= $lat ?>, <?= $lng ?>, map);
+                generateInfobox(<?= $lat ?>, <?= $lng ?>, <?= $name ?>, <?= $tell ?>, map);
             <?php endforeach; ?>
         };
 
