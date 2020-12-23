@@ -5,9 +5,9 @@ error_reporting(E_ALL & ~E_NOTICE);
 $pdo = connect_to_db();
 
 // $id = 10;  //テスト用   
-$member_id = 2;  //テスト用
+// $member_id = 2;  //テスト用
 $id = $_GET['id'];  //本番はこっち
-// $member_id = $_SESSION['id'];  //本番はこっち
+$member_id = $_SESSION['id'];  //本番はこっち
 
 //店舗情報のデータを持ってくる処理
 $sql = 'SELECT * FROM shop WHERE id=:id';
@@ -177,7 +177,7 @@ if ($status == false) {
                     <summary>レビュー投稿</summary>
                     <form action="review.php" method="POST">
                         <input type="hidden" name="shop_id" value="<?= $id ?>">
-                        <input type="hidden" name="memeber_id" value="<?= $member_id ?>">
+                        <input type="hidden" name="member_id" value="<?= $member_id ?>">
                         <p><input type="text" name="title" class="title-input" placeholder="タイトル">
                             <p class="score-select">
                                 お店の評価
