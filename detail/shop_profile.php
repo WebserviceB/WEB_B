@@ -112,7 +112,7 @@ if ($status == false) {
 
 
                         <div class="info_text_box_text">
-                            <table>
+                            <table cellspacing="14 15">
                                 <tr>
                                     <th>評価</th>
                                     <td>：</td>
@@ -197,7 +197,7 @@ if ($status == false) {
                     </form>
                 </details>
             <?php endif; ?>
-            <a href="../content/shop_list.php">店舗一覧に戻る</a>
+            <a href="../content/shop_list.php" class="back">店舗一覧に戻る</a>
         </div>
     </main>
     <footer>
