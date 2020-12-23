@@ -39,9 +39,8 @@ if ($status == false) {
         <nav>
           <ul class="main-nav">
             <li>
-             
-            </li>
 
+            </li>
             <li>
               <a href="#" class="top_menu">
                 <p class="menu_text"><span class="material-icons">local_dining</span>食べ物</p>
@@ -70,8 +69,8 @@ if ($status == false) {
             <p class="main_inner_text">
               FUKUOKA <p class="item_text">YATAI MAP</p>
               <div class="search_input_box">
-                <form action="">
-                  <input class="search_textbox" type="text" />
+                <form action="../search/search.php">
+                  <input class="search_textbox" type="text" name="keyword">
                   <label class="search-label" for="Username"><span class="material-icons">
                       search
                     </span>探す</label>
@@ -90,7 +89,7 @@ if ($status == false) {
 
 
 
-   
+
       <section class="event">
         <div class="event_btn">
           <div class="event_btn_a">
@@ -133,6 +132,7 @@ if ($status == false) {
               $name = $shop['name'];
               $acsess = $shop['place'];
               $tell = $shop['tell'];
+              $category = $shop['category'];
               $image = $shop['img'];
               $time = $shop['start'] . '〜' . $shop['end'];
               if ($shop['scores'] !== '') {
@@ -145,12 +145,13 @@ if ($status == false) {
                 <div class="card">
                   <div class="thumb"><img src="../image/<?= $image ?>" alt=""></div>
                   <div class="card_inner">
+                    <p><?= round($score, 1) ?>点</p>
                     <h2><?= $name ?></h2>
                     <p><?= $acsess ?></p>
                     <p><?= $tell ?></p>
                     <p><?= $time ?></p>
-                    <span>カテゴリー</span>
-                    <p><?= round($score, 1) ?>点</p>
+                    <p><span>カテゴリー</span><br>
+                      <?= $category ?></p>
                   </div>
                 </div>
               </a>

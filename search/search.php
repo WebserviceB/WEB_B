@@ -6,7 +6,7 @@ $pdo = connect_to_db();
 $keyword = $_GET['keyword'];
 date_default_timezone_set('Asia/Tokyo');
 $time = date('Y/n/d/H:i');
-$sql = 'SELECT * FROM shop WHERE name LIKE :key';
+$sql = 'SELECT * FROM shop WHERE name or place or category LIKE :key';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':key', '%' . $keyword . '%', PDO::PARAM_STR);
 $status = $stmt->execute();
@@ -68,6 +68,7 @@ if ($status == false) {
         $tell = $shop['tell'];
         $place = $shop['place'];
         $info = $shop['info'];
+        $category = $shop['category'];
         $time = $shop['start'] . '〜' . $shop['end'];
         $budget = $shop['budget'];
         $score = $shop['score'];
@@ -80,6 +81,7 @@ if ($status == false) {
               <span><?= $budget ?>yen</span>
             </p>
             <p><?= $tell ?></p>
+            <p><?= $category ?></p>
             <p><?= $time ?></p>
             <p><?= $place ?></p>
             <p class="upper in-blo">read more

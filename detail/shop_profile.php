@@ -197,10 +197,10 @@ if ($status == false) {
                     </form>
                 </details>
             <?php endif; ?>
+            <a href="../content/shop_list.php">店舗一覧に戻る</a>
         </div>
     </main>
     <footer>
-        <a href="shoplist.php">一覧に戻る</a>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
