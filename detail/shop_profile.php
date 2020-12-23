@@ -176,7 +176,7 @@ if ($status == false) {
                     <summary>レビュー投稿</summary>
                     <form action="review.php" method="POST">
                         <input type="hidden" name="shop_id" value="<?= $id ?>">
-                        <input type="hidden" name="memeber_id" value="<?= $member_id ?>">
+                        <input type="hidden" name="member_id" value="<?= $member_id ?>">
                         <p><input type="text" name="title" class="title-input" placeholder="タイトル">
                             <p class="score-select">
                                 お店の評価
@@ -193,7 +193,9 @@ if ($status == false) {
                     </form>
                 </details>
             <?php endif; ?>
+
             <div class="search_logo"><a href="../search/search.php"><img src="../image/ramenman.jpg" alt="">店舗一覧へ</a></div>
+
         </div>
     </main>
     <footer>
