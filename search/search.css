@@ -10,7 +10,7 @@ body {
 }
 
 .search_box {
-  background: #ddd;
+  background: rgb(252, 215, 123);
   margin: 0;
   padding: 0;
 }
@@ -83,6 +83,43 @@ button:hover {
   list-style: square;
 }
 
+.category_menu li {
+  width: 80px;
+}
+
+
+.top_menu {
+  text-decoration: none;
+  color: #303030;
+  font-size: 16px;
+}
+
+.menu_text {
+  position: relative;
+  z-index: 1;
+}
+
+.menu_text:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0%;
+  height: 2px;
+  background: #e67f02;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.top_menu:hover .menu_text:after {
+  width: 100%;
+}
+
+.menu_text span {
+  font-size: 20px;
+  color: brown;
+}
+
 .card {
   width: 70%;
   margin-right: 20px;
@@ -113,12 +150,12 @@ button:hover {
   display: inline-block;
   position: absolute;
   /* float: left; */
-  width: 200px;
+  width: 300px;
   height: 200px;
   border: 1px solid #f0be0f;
   margin-top: 60px;
-  margin-right: 20px;
-  right: 650px;
+  margin-right: 5px;
+  right: 600px;
 }
 
 .card .card-item div {
@@ -128,12 +165,12 @@ button:hover {
 
 .card h1 {
   text-transform: capitalize;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 
 .card .colored {
   color: gold;
-  margin-right: 60px;
+  margin-right: 80px;
 }
 
 .card .colored span {
@@ -143,7 +180,7 @@ button:hover {
 .card.colored span:last-child {
   font-size: 14px;
   color: #777;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .card hr {
@@ -151,12 +188,18 @@ button:hover {
   color: #dec4c480;
   width: 25%;
   float: left;
+  margin-left: 45px;
+
 }
 
 .card-item p:nth-of-type(2) {
   color: #c1c3ad;
   margin-top: -15px;
-  margin-left: 20px
+  margin-left: 50px
+}
+
+.card-item p {
+  margin-left: 50px;
 }
 
 .upper {
@@ -171,6 +214,8 @@ button:hover {
 .card ul {
   list-style: square;
   padding-top: 20px;
+  margin-left: 40px;
+
 }
 
 .card ul li {

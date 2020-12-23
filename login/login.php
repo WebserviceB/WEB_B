@@ -1,3 +1,49 @@
+<?php
+
+session_start();
+error_reporting(E_ALL & ~E_NOTICE);
+include('../functions.php');
+
+
+if (!empty($_POST)) {
+
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  $pdo = connect_to_db();
+
+  $sql = 'SELECT * FROM user WHERE email=:email AND password=:password';
+
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+  $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+  $status = $stmt->execute();
+
+  if ($status == false) {
+    // SQL実行に失敗した場合はここでエラーを出力し，以降の処理を中止する
+    $error = $stmt->errorInfo();
+    echo json_encode(["error_msg" => "{$error[2]}"]);
+    exit();
+  } else {
+    $val = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$val) { // 該当データがないときはログインページへのリンクを表示
+      $error = "入力内容が間違っています。";
+    } else {
+      $_SESSION = array();
+      $_SESSION["session_id"] = session_id();
+      $_SESSION["id"] = $val["id"];
+      $_SESSION["name"] = $val["name"];
+      $_SESSION["email"] = $val["email"];
+      header('Location:../top/top.php');
+    }
+  }
+}
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -8,22 +54,22 @@
 </head>
 
 <body>
-  <form action="login_act.php" method="POST">
+  <form action="" method="POST">
     <fieldset>
       <legend>ログイン画面</legend>
       <div>
-        メールアドレス: <input type="email" name="email">
+        メールアドレス: <input type="email" name="email" required>
       </div>
       <div>
-        パスワード: <input type="text" name="password">
+        パスワード: <input type="text" name="password" required>
       </div>
+      <p class="error"><?= $error ?></p>
       <div>
         <button>Login</button>
       </div>
       <a href="createuser.php">ユーザー登録画面</a>
     </fieldset>
   </form>
-
 </body>
 
 </html>

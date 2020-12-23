@@ -87,27 +87,6 @@ if ($status == false) {
           </div>
         </div>
       <?php endforeach; ?>
-      <!-- １カード終わり -->
-      <!-- カード　php埋め込み後消していいい -->
-      <!-- <div class="card-item left">
-        <img src="pic/23050e9fadbcc-c268-4c99-bfcb-20932ade85f7_m.jpg" alt="">
-        <div class="right">
-          <h1>焼き鳥屋</h1>
-          <p>平均単価
-            <span>1000yen</span>
-          </p>
-
-          <p>例 焼き鳥晩酌セット</p>
-          <hr>
-
-          <ul>
-            <li>焼き鳥 5本</li>
-            <li>ビール</li>
-          </ul>
-          <p class="upper in-blo">read more
-            <button class="btn">veiw</button></p>
-        </div>
-      </div> -->
     </section>
   </div>
 
