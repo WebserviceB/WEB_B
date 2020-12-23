@@ -17,7 +17,7 @@ $password = $_POST['password'];
 
 // DB接続の設定
 // DB名は`gsacf_x00_00`にする
-include('functions.php');
+include('../functions.php');
 $pdo = connect_to_db();
 
 // データ登録SQL作成
