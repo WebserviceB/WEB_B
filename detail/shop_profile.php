@@ -151,7 +151,7 @@ if ($status == false) {
                     ?>
                     <div class="review_box">
                         <p>name:<?= $name ?></p>
-                        <h1><?= $title ?></h1>
+                        <h1><?= $title ?> <span><?= $score ?>点</span></h1>
                         <div class="review_text">
                             <p><?= $text ?></p>
                             <p><?= $time ?> <span class="material-icons">delete</span></p>

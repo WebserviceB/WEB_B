@@ -61,11 +61,12 @@ if ($status == false) {
       <div class="search">
         <div class="search-input">
           <div class="search_input_box">
-            <form action="">
-              <input class="search_textbox" type="text" />
+            <form action="../search/search.php" method="GET">
+              <input class="search_textbox" type="text" name="keyword">
               <label class="search-label" for="Username"><span class="material-icons">
                   search
                 </span>探す</label>
+              <button type="submit">検索</button>
             </form>
           </div>
         </div>
