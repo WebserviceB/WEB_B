@@ -4,70 +4,108 @@
 }
 
 body {
-  background: rgb(254, 238, 214);
-}
-
-.user_form {
-  height: 400px;
-  width: 300px;
-  background: #fff;
-  margin: 0 auto;
-  margin-top: 70px;
-  padding: 70px;
-  border-radius: 5px;
-  box-shadow: 0 5px 5px 0 rgb(171, 171, 171);
-}
-
-.user_form h1 {
-  margin: 0;
-}
-
-.user_form p {
-  margin-bottom: 8px;
-  font-weight: bold;
-  font-size: 14px;
-  font-family: "Times New Romans ";
-}
-
-input {
-  width: 300px;
-  height: 30px;
-  border-radius: 5px;
-  border: solid 1px rgb(196, 195, 195);
-}
+  background: rgb(230, 165, 69);
+  }
 
 
+  .top_logo img {
+    margin-top: 20px;
+    margin-left: 20px;
+    mix-blend-mode: multiply;
+    width: 60px;
+  }
 
-.submit {
-  text-align: right;
-  margin-top: 50px;
-}
+  .top_logo a {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(122, 49, 3);
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+  }
 
-#submit {
-  width: 80px;
-  height: 50px;
-  padding: 10px;
-  font-weight: bold;
-  color: rgb(123, 122, 122);
-}
+  .top_logo a:hover {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(224, 94, 13);
+    text-decoration: none;
 
-.error {
-  color: red;
-  font-size: 9px;
-  font-weight: normal;
-}
+  }
 
-.login {
-  font-size: 14px;
-  margin-top: 10px;
-}
 
-.login a {
-  cursor: pointer;
-  color: slategrey;
-  text-decoration: none;
-}
+  .user_form {
+    height: 380px;
+    width: 300px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 70px;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px 0 rgb(171, 171, 171);
+  }
 
-.login:hover {
-  font-weight: bold;
-}
+  .form {
+    margin-top: 70px;
+  }
+
+  .user_form h1 {
+    margin: 0;
+  }
+
+  .user_form p {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Times New Romans ";
+  }
+
+  input {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 1px rgb(196, 195, 195);
+  }
+
+
+
+  .submit {
+    text-align: right;
+    margin-top: 90px;
+  }
+
+  #submit {
+    width: 75px;
+    height: 50px;
+    padding: 10px;
+    font-weight: bold;
+    color: rgb(121, 119, 119);
+    box-shadow: 0 4px 4px 0 rgb(106, 105, 105);
+  }
+
+  #submit:hover {
+    box-shadow: 0 1px 1px 0 rgb(85, 83, 83);
+  }
+
+  .error {
+    color: red;
+    font-size: 9px;
+    font-weight: normal;
+  }
+
+  .login {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .login a {
+    cursor: pointer;
+    color: slategrey;
+    text-decoration: none;
+  }
+
+  .login:hover {
+    font-weight: bold;
+  }
+
+  .error {
+    color: rgb(201, 15, 15);
+  }

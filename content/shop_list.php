@@ -2,9 +2,9 @@
 
 session_start();
 include('../functions.php');
-// check_session_id();
 
-// DB接続
+
+// DB接
 $pdo = connect_to_db();
 
 // データ取得SQL作成
@@ -34,8 +34,9 @@ if ($status == false) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="content.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 <body>
   <!DOCTYPE html>
   <html lang="ja">
@@ -225,12 +226,11 @@ if ($status == false) {
               <img src="" alt="">
             </div>
             <div class="card_inner">
-              <h1>店名</h1>
-              <span>カテゴリー</span>
-              <p>詳細</p>
-
+              <h1><?= $record["name"] ?></h1>
+              <span><?= $record["category"] ?></span>
+              <p><a href='detail/shop_profile.php?id=<?= $record["id"]?>'>詳細</a></p>
               <div class="inner_text">
-                <p>ラーメンが美味しいよ。おばちゃんがやってるよ。jjjjjjjjjjjjjjjjjjjj</p>
+                <p><?= $record["info"] ?></p>
               </div>
               <div class="iine">
                 <p>いいね</p>
@@ -238,16 +238,9 @@ if ($status == false) {
             </div>
           </a>
         </div>
-
-        <!-- 終わり -->
-
+  
       </div>
       </div>
-
-    </main>
-
-
-
-  </body>
-
-  </html>
+  </main>
+</body>
+</html>

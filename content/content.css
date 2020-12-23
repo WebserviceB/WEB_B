@@ -1,14 +1,14 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-  --clr-primary: rgb(54, 112, 199);
-  --clr-light: #f4f4f4;
-  --clr-dark: #333;
-  --clr-warning: rgb(99, 36, 36);
+    --clr-primary: rgb(54, 112, 199);
+    --clr-light: #f4f4f4;
+    --clr-dark: #333;
+    --clr-warning: rgb(99, 36, 36);
 }
 
 body {
@@ -17,23 +17,22 @@ body {
 }
 
 main {
-  margin: 0;
-  height: auto;
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
+    margin: 0;
+    height: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 
 
 .main-nav {
-  display: -webkit-flex;
-  display: flex;
-  list-style: none;
+    display: -webkit-flex;
+    display: flex;
 }
 
 .main-nav li:first-child {
-  margin-right: auto;
+    margin-right: auto;
 }
 
 .item_text {
@@ -57,300 +56,125 @@ main {
 }
 
 .main-nav a {
-  margin: 10px;
-  border-radius: 5px;
-  display: block;
-  padding: 15px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    background: var(--clr-primary);
+    color: var(--clr-light);
+    display: block;
+    padding: 15px;
+    text-decoration: none;
 }
 
-.top_menu {
-  text-decoration: none;
-  color: #c3c1c1;
-  font-size: 16px;
-
+.main-nav {
+    list-style: none;
 }
 
-.menu_text {
-  position: relative;
-  z-index: 1;
-  font-size: 20px;
-}
-
-.menu_text:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 0%;
-  height: 2px;
-  background: #e67f02;
-  z-index: -1;
-  transition: all 0.4s;
-}
-
-.top_menu:hover .menu_text:after {
-  width: 100%;
-}
-
-.menu_text span {
-  font-size: 30px;
-  color: rgb(246, 184, 60);
+.main-nav .logo {
+    background: #4584b1;
 }
 
 .category_menu {
-  width: 20%;
-  margin-left: 30px;
-  height: 900px;
-  color: #fff;
-  margin-top: 40px;
-}
-
-.category_menu a {
-  text-decoration: none;
-  color: #fff;
+    width: 20%;
+    margin-left: 30px;
+    height: 900px;
 }
 
 .category_menu h1 {
-  margin-bottom: 40px;
-  font-size: 30px;
-
+    margin-bottom: 30px;
+    font-size: 30px;
 }
 
 .category_menu ul {
-  list-style: square;
-  margin-left: 30px;
-  font-size: 20px;
+    list-style: square;
+    margin-left: 30px;
 }
 
 .category_menu li {
-  margin-bottom: 30px;
-  font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .card_box {
-  flex-wrap: wrap;
-  width: 80%;
-  height: auto;
-  display: flex;
-  align-content: flex-start;
-  /* justify-content: space-between; */
-  padding: 30px;
-  padding-left: 50px;
-  border-radius: 5px;
-  box-shadow: 0 10px 10px 0 rgb(168, 168, 168);
-  background-color: #fff;
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-content: flex-start;
+    /* justify-content: space-between; */
+    padding: 30px;
+    padding-left: 50px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px 0 rgb(168, 168, 168);
 }
 
 .thumb {
-  width: 100%;
-  height: 180px;
-  background: chocolate;
-
-}
-
-.card {
-  width: 250px;
-  height: auto;
-  margin: 20px;
-  margin-bottom: 40px;
-}
-
-.card_link {
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  color: #4584b1;
-  /* transition: all .1s easy-in; */
-}
-
-.card_link:hover {
-  top: -2;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-}
-
-.card a {
-  text-decoration: none;
-}
-
-.card img {
-  width: 100%;
-}
-
-.card_inner {
-  padding: 10px;
-  display: flex;
-  font-size: 12px;
-  flex: 1;
-  justify-content: space-between;
-  flex-direction: column;
-
-}
-
-.card_inner p {
-  flex: 1;
-  line-height: 1.4;
-}
-
-.card_inner h1 {
-  font-size: 18px;
-  margin: 0;
-  color: rgb(54, 53, 53);
-}
-
-.card_inner span {
-  font-size: 10px;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #999;
-  text-transform: uppercase;
-}
-
-.inner_text {
-  color: rgb(83, 81, 81);
-  height: 100px;
-}
-
-.iine {
-  font-size: 8px;
-  text-align: right;
-
-}
-
-@media screen and (max-width: 400px) {
-
-  .category_menu {
-    display: none;
-  }
-
-  .main-nav {
-    display: -webkit-flex;
-    display: flex;
-    list-style: none;
-  }
-  .main-nav p{
-   font-size: 12px;
-  }
-
-  .main-nav li:first-child {
-    margin-right: auto;
-  }
-
-  .item_text {
-    font-size: 20px;
-    font-weight: bold;
-    animation: key1 .3s ease infinite alternate;
-    letter-spacing: 0.15em;
-    -webkit-text-stroke: 1px #fedc2f;
-    color: transparent;
-
-  }
-
-  @keyframes key1 {
-    0% {
-      transform: translateY(0px);
-    }
-
-    100% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .main-nav a {
-    margin: 10px;
-    border-radius: 5px;
-    display: block;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-  }
-
-  .top_menu {
-    text-decoration: none;
-    color: #c3c1c1;
-  }
-  
-  .card_box {
-    width: 100%;
-  }
-
-  .thumb {
     width: 100%;
     height: 180px;
     background: chocolate;
+}
 
-  }
-
-  .card {
-    width: 200px;
+.card {
+    width: 220px;
     height: auto;
-    margin: 0 auto;
-    margin-bottom: 20px;
-  }
+    margin: 20px;
+    margin-bottom: 40px;
+}
 
-  .card_link {
+.card_link {
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     color: #4584b1;
     /* transition: all .1s easy-in; */
-  }
+}
 
-  .card_link:hover {
+.card_link:hover {
     top: -2;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  }
+}
 
-  .card a {
+.card a {
     text-decoration: none;
-  }
+}
 
-  .card img {
+.card img {
     width: 100%;
-  }
+}
 
-  .card_inner {
+.card_inner {
     padding: 10px;
     display: flex;
     font-size: 12px;
     flex: 1;
     justify-content: space-between;
     flex-direction: column;
+}
 
-  }
-
-  .card_inner p {
+.card_inner p {
     flex: 1;
     line-height: 1.4;
-  }
+}
 
-  .card_inner h1 {
+.card_inner h1 {
     font-size: 18px;
     margin: 0;
-    color: rgb(54, 53, 53);
-  }
+    color: #333;
+}
 
-  .card_inner span {
+.card_inner span {
     font-size: 10px;
     margin-bottom: 8px;
     font-weight: bold;
     color: #999;
     text-transform: uppercase;
-  }
+}
 
-  .inner_text {
-    color: rgb(83, 81, 81);
+.inner_text {
+    color: #333;
     height: 100px;
-  }
+}
 
-  .iine {
+.iine {
     font-size: 8px;
     text-align: right;
-
-  }
 }
