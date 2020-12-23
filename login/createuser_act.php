@@ -38,7 +38,7 @@ if ($status == false) {
   echo json_encode(["error_msg" => "{$error[2]}"]);
   exit();
 } else {
-  // 正常にSQLが実行された場合は入力ページファイルに移動し，入力ページの処理を実行する
+  // 正常にSQLが実行された場合は入力ページファイルに移動し，入力ページの処理を実行す
   header("Location:createuser_success.php");
   exit();
 }

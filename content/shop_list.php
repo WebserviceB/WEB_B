@@ -4,7 +4,7 @@ session_start();
 include('../functions.php');
 
 
-// DB接続
+// DB接
 $pdo = connect_to_db();
 
 // データ取得SQL作成
