@@ -64,6 +64,7 @@ if ($status == false) {
 
     <main>
       <section class="top_text">
+
         <div class="main_container">
           <div class="main_inner">
             <p class="main_inner_text">
@@ -89,48 +90,28 @@ if ($status == false) {
 
 
 
-      <!-- <section class="top_text">
-
-        <div class="search">
-          <div class="search-input">
-            <div class="search_input_box">
-              <form action="">
-                <input class="search_textbox" type="text" />
-                <label class="search-label" for="Username"><span class="material-icons">
-                    search
-                  </span>探す</label>
-              </form>
-            </div>
-          </div>
-      </section> -->
-
+   
       <section class="event">
         <div class="event_btn">
           <div class="event_btn_a">
-            <a href=""><span class="material-icons">
-                place
-              </span><br>
+            <a href=""><span class="material-icons">place</span><br>
               <p>天神駅から徒歩１０分</p>
             </a>
           </div>
           <div class="event_btn_b">
-            <a href=""><span class="material-icons">
-                rice_bowl
-              </span><br>
+            <a href=""><span class="material-icons">rice_bowl</span><br>
               <p>中洲</p>
             </a>
           </div>
           <div class="event_btn_c">
-            <a href=""><span class="material-icons">
-                star
-              </span><br>
+            <a href=""><span class="material-icons">star</span><br>
               <p>隠れ人気店</p>
             </a>
           </div>
         </div>
       </section>
-      <section class="main_content">
 
+      <section class="main_content">
         <div class="map">
           <h1>マップで探す</h1>
           <div data-aos="zoom-in">

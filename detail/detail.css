@@ -11,7 +11,7 @@ header {
 .ditail_manu {
     background: #fff;
     width: 80%;
-    height: auto;
+    /* height: auto; */
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 50px;
@@ -38,7 +38,6 @@ header {
 .info_text span {
     letter-spacing: 0.15em;
     -webkit-text-stroke: 1px #5bc8ac;
-    
     color: transparent;
     font-size: 30px;
 }
@@ -46,24 +45,25 @@ header {
 .info_title_name {
     width: 70%;
 }
- .info_inner {
+
+.info_inner {
     width: 30%;
     height: 100px;
     margin-left: 90px;
     margin-top: 40px;
-    
 }
-.info_inner li{
+
+.info_inner li {
     display: flex;
-    
 }
-.info_inner p{
+
+.info_inner p {
     font-size: 18px;
     font-weight: bold;
-   
 }
- .info_inner span {
-   font-size: 18px;
+
+.info_inner span {
+    font-size: 18px;
 }
 
 .info_text_box {
@@ -90,10 +90,16 @@ header {
     padding: 40px;
 }
 
+.map_box {
+    width: 100%;
+    text-align: center;
+}
+
 .review {
     box-shadow: 5px 5px 5px 5px lightgray;
     width: 100%;
-    height: auto;
+    max-height: 1000px;
+    overflow: scroll;
     background: lemonchiffon;
     position: relative;
     padding: 10px 0;
@@ -127,4 +133,49 @@ header {
 .material-icons {
     font-size: 20px;
     color: rgb(183, 3, 3);
+}
+
+details {
+    margin-top: 2rem;
+}
+
+summary {
+    font-size: 2rem;
+    text-align: center;
+    outline: none;
+}
+
+form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+}
+
+.title-input {
+    width: 50%;
+    height: 30px;
+    outline: none;
+}
+
+textarea {
+    width: 90%;
+    height: 60px;
+    resize: none;
+    outline: none;
+}
+
+.score-select input {
+    width: 10%;
+}
+
+form button {
+    width: 20%;
+    height: 40px;
+    background: lemonchiffon;
+}
+
+form p {
+    margin-bottom: 5px;
 }
