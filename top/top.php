@@ -84,21 +84,27 @@ if ($status == false) {
         </div>
       </section>
 
+
+
+
+
+
+
       <section class="event">
         <div class="event_btn">
           <div class="event_btn_a">
-            <a href="../search/search.php?keyword=天神"><span class="material-icons">place</span><br>
-              <p>天神エリア</p>
+            <a href=""><span class="material-icons">place</span><br>
+              <p>天神駅から徒歩１０分</p>
             </a>
           </div>
           <div class="event_btn_b">
-            <a href="../search/search.php?keyword=中洲"><span class="material-icons">rice_bowl</span><br>
-              <p>中洲エリア</p>
+            <a href=""><span class="material-icons">rice_bowl</span><br>
+              <p>中洲</p>
             </a>
           </div>
           <div class="event_btn_c">
-            <a href="../search/search.php?keyword=長浜"><span class="material-icons">star</span><br>
-              <p>長浜</p>
+            <a href=""><span class="material-icons">star</span><br>
+              <p>隠れ人気店</p>
             </a>
           </div>
         </div>
@@ -107,8 +113,10 @@ if ($status == false) {
       <section class="main_content">
         <div class="map">
           <h1>マップで探す</h1>
-          <div data-aos="zoom-in" class="map_box">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="1400" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          <div data-aos="zoom-in">
+            <div class="map_box">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="1400" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
           </div>
         </div>
       </section>

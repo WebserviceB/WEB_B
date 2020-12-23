@@ -6,7 +6,7 @@ $pdo = connect_to_db();
 $keyword = $_GET['keyword'];
 date_default_timezone_set('Asia/Tokyo');
 $time = date('Y/n/d/H:i');
-$sql = 'SELECT * FROM shop WHERE name LIKE :key or place LIKE :key or category LIKE :key';
+$sql = 'SELECT * FROM shop WHERE name or place or category LIKE :key';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':key', '%' . $keyword . '%', PDO::PARAM_STR);
 $status = $stmt->execute();
@@ -50,24 +50,19 @@ if ($status == false) {
       <!-- なび -->
       <div class="category_menu">
         <nav>
-          <h1>キーワード</h1>
+          <h1>他一覧</h1>
           <ul>
-            <li><a href="search.php?keyword=ラーメン">ラーメン</a></li>
-            <li><a href="search.php?keyword=焼き鳥">焼き鳥</a></li>
-            <li><a href="search.php?keyword=博多">博多</a></li>
-            <li><a href="search.php?keyword=天神">天神</a></li>
-            <li><a href="search.php?keyword=中洲">中洲</a></li>
+            <li>食べ物</li>
+            <li>エリア</li>
           </ul>
         </nav>
       </div>
-      <a href="../top/top.php">TOP</a>
     </section>
     <!-- ナビ終わり -->
     <section class="card right">
       <!-- ここからカードスタート -->
       <?php foreach ($shops as $shop) : ?>
         <?php
-        $id = $shop['id'];
         $name = $shop["name"];
         $img = '../image/' . $shop['img'];
         $tell = $shop['tell'];
@@ -78,23 +73,21 @@ if ($status == false) {
         $budget = $shop['budget'];
         $score = $shop['score'];
         ?>
-        <a href="../detail/shop_profile.php?id=<?= $id ?>">
-          <div class="card-item left">
-            <img src="<?= $img ?>" alt="">
-            <div class="right">
-              <h1><?= $name ?></h1>
-              <p>平均単価
-                <span><?= $budget ?>yen</span>
-              </p>
-              <p><?= $tell ?></p>
-              <p><?= $category ?></p>
-              <p><?= $time ?></p>
-              <p><?= $place ?></p>
-              <p class="upper in-blo">read more
-                <button class="btn">veiw</button></p>
-            </div>
+        <div class="card-item left">
+          <img src="<?= $img ?>" alt="">
+          <div class="right">
+            <h1><?= $name ?></h1>
+            <p>平均単価
+              <span><?= $budget ?>yen</span>
+            </p>
+            <p><?= $tell ?></p>
+            <p><?= $category ?></p>
+            <p><?= $time ?></p>
+            <p><?= $place ?></p>
+            <p class="upper in-blo">read more
+              <button class="btn">veiw</button></p>
           </div>
-        </a>
+        </div>
       <?php endforeach; ?>
     </section>
   </div>
