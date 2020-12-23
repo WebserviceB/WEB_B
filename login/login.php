@@ -37,12 +37,10 @@ if (!empty($_POST)) {
       $_SESSION["id"] = $val["id"];
       $_SESSION["name"] = $val["name"];
       $_SESSION["email"] = $val["email"];
-      header('Location:shop_list.php');
+      header('Location:../content/shop_list.php');
     }
   }
 }
-
-
 
 ?>
 
@@ -53,11 +51,34 @@ if (!empty($_POST)) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="user.css">
   <title></title>
 </head>
-
 <body>
-  <form action="" method="POST">
+  <section class="user_create">
+    <div class="user_form">
+      <div class="form">
+
+        <form action="" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="size" value="1000000">
+          <p>Email:</p><input type="text" name="email" value="" required>
+          <p>password:</p><input type="password" name="password" value="" required>
+          <div class="submit">
+            <p><input type="submit" value="ログイン" id="submit1"></p>
+        </form>
+
+        <div class="login">
+          <p><a href="user.php">会員登録はこちらから</a></p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+
+
+  <!-- <form action="" method="POST">
     <fieldset>
       <legend>ログイン画面</legend>
       <div>
@@ -72,7 +93,31 @@ if (!empty($_POST)) {
       </div>
       <a href="createuser.php">ユーザー登録画面</a>
     </fieldset>
-  </form>
+  </form> -->
 </body>
 
 </html>
+
+
+
+<section class="user_create">
+  <div class="user_form">
+    <div class="form">
+
+      <form action="user_check.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="size" value="1000000">
+        <p>name:</p><input type="text" name="name" value="" required>
+        <p>Email:</p><input type="text" name="email" value="" required>
+        <p>password:</p><input type="text" name="password" value="" required>
+        <div class="submit">
+          <p><input type="submit" value="登録" id="submit"></p>
+      </form>
+
+      <div class="login">
+        <p><a href="login.php">ログインはこちらから</a></p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
