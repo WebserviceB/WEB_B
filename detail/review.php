@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("functions.php");
+include("../functions.php");
 $pdo = connect_to_db();
 
 $title = $_POST['title'];
@@ -8,9 +8,7 @@ $text = $_POST['text'];
 $score = $_POST['score'];
 $member_id = $_POST['member_id'];
 $shop_id = $_POST['shop_id'];
-
-$sql = 'INSERT INTO posts(id,title,text,score,memeber_id,shop_id) SET (NULL,:title,:text,:score,:m_id,:s_id,sysdate())';
-
+$sql = 'INSERT INTO posts(id,title,text,score,member_id,shop_id,created) VALUES (NULL,:title,:text,:score,:m_id,:s_id,sysdate())';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':title', $title, PDO::PARAM_STR);
 $stmt->bindValue(':text', $text, PDO::PARAM_STR);
@@ -21,8 +19,8 @@ $status = $stmt->execute();
 
 if ($status == false) {
     $error = $stmt->errorInfo();
-    echo json_encode(["error_msg" => "{$error[2]}"]);
     $title = "エラー";
+    echo json_encode(["error_msg" => "{$error[2]}"]);
     exit();
 } else {
     $title = '投稿完了';
