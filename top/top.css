@@ -329,7 +329,6 @@ main {
     font-size: 55px;
 }
 
- 
 .ranking_card_box {
     width: 100%;
     display: flex;
@@ -406,7 +405,7 @@ main {
 }
 
 footer {
-    background: #a0a0a0;
+    /* background: #a0a0a0; */
     width: 100%;
     height: 100px;
 }
@@ -457,8 +456,3 @@ footer {
     width: 70%;
     height: 90%;
 }
-
-/* #map {
-height: 300px;
-width: 100%;                
-    } */
