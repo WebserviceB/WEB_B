@@ -61,8 +61,8 @@ if ($status == false) {
               </a>
             </li>
             <li>
-              <a href="#" class="top_menu">
-                <p class="menu_text"><span class="material-icons">where_to_vote</span>MAP</p>
+              <a href="../logout.php" class="top_menu">
+                <p class="menu_text"><span class="material-icons">where_to_vote</span>logout</p>
               </a>
             </li>
             <li>
