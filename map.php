@@ -6,6 +6,9 @@ $sql = "SELECT * FROM shop";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 
+// var_dump($stmt);
+// exit;
+
 // データ登録処理後
 if ($status == false) {
 
@@ -15,6 +18,7 @@ if ($status == false) {
 } else {
     $shops = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +29,7 @@ if ($status == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 
 <body>
     <div id="map"></div>
@@ -69,7 +74,6 @@ if ($status == false) {
                 },
                 zoom: 16,
             });
-
             <?php foreach ($shops as $shop) : ?>
                 <?php
                 $id = $shop['id'];
