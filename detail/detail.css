@@ -43,7 +43,6 @@ header {
 .search_logo {
     width: 100%;
     text-align: right;
-
 }
 
 .search_logo img {
@@ -65,7 +64,6 @@ header {
 .search_logo a:hover {
     font-size: 20px;
 }
-
 
 .ditail_manu {
     background: #fff;
@@ -164,6 +162,11 @@ th {
 .map_box {
     width: 100%;
     text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 300px;
 }
 
 .review {

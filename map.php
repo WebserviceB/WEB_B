@@ -18,7 +18,7 @@ if ($status == false) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -47,12 +47,14 @@ if ($status == false) {
             now.entities.push(pin);
         };
 
-        function generateInfobox(lat, lng, title, tell, now) {
+        function generateInfobox(lat, lng, link, title, tell, now) {
             const location = new Microsoft.Maps.Location(lat, lng)
             console.log(title);
             let infobox = new Microsoft.Maps.Infobox(location, {
+                link: '<a href="../detail/shop_profile?id=' + link + '"',
                 title: title,
-                description: tell
+                description: tell,
+                end: '</a>'
             });
             infobox.setMap(now);
         };
@@ -70,13 +72,15 @@ if ($status == false) {
 
             <?php foreach ($shops as $shop) : ?>
                 <?php
+                $id = $shop['id'];
                 $lat = $shop['lat'];
                 $lng = $shop['lng'];
-                $name = "'" . $shop['name'] . "'";
-                $tell = "'" . $shop['tell'] . "'";
+                $link = "'" . $id . "'";
+                $name = "'" . $shop["name"] . "'";
+                $tell = "'" . $shop["tell"] . "'";
                 ?>
                 pushPin(<?= $lat ?>, <?= $lng ?>, map);
-                generateInfobox(<?= $lat ?>, <?= $lng ?>, <?= $name ?>, <?= $tell ?>, map);
+                generateInfobox(<?= $lat ?>, <?= $lng ?>, <?= $link ?>, <?= $name ?>, <?= $tell ?>, map);
             <?php endforeach; ?>
         };
 
