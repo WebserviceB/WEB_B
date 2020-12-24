@@ -30,6 +30,8 @@ if ($status == false) {
     $time = $shop['start'] . '〜' . $shop['end'];
     $budget = $shop['budget'];
     $score = $shop['score'];
+    $lat = $shop['lat'];
+    $lng = $shop['lng'];
 }
 
 //レビューのデータを持ってくる処理
@@ -77,11 +79,17 @@ if ($status == false) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title><?= $name ?></title>
+    <style>
+        #map {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
 </head>
 
 
 <body>
-  
+
     <main>
         <div class="ditail_manu">
             <!-- 詳細カードスタート -->
@@ -144,7 +152,8 @@ if ($status == false) {
                     </div>
                     <!-- 店舗マップ -->
                     <div class="map_box" data-aos="zoom-in">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="900" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <div id="map"></div>
+                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="900" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
                     </div>
                 </div>
             </section>
@@ -198,12 +207,71 @@ if ($status == false) {
 
         </div>
     </main>
-    <footer>
-    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="detail.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnQJZrQy1wiLpy2Cxz-5hv-7pacTy0UigtldvZQiKCr3TotjOU7nZUiKGxVIV9Oz' async defer></script>
+    <script>
+        let map;
+        const set = {
+            enableHighAccuracy: true,
+            maximumAge: 20000,
+            timeout: 1000000,
+        };
+
+        function pushPin(lat, lng, now) {
+            const location = new Microsoft.Maps.Location(lat, lng)
+            const pin = new Microsoft.Maps.Pushpin(location, {
+                color: 'navy', // 色の設定
+                visible: true, // これ書かないとピンが見えない
+            });
+            now.entities.push(pin);
+        };
+
+        function generateInfobox(lat, lng, title, now) {
+            const location = new Microsoft.Maps.Location(lat, lng)
+            console.log(title);
+            let infobox = new Microsoft.Maps.Infobox(location, {
+                title: title
+            });
+            infobox.setMap(now);
+        };
+
+        function mapsInit(position) {
+            const lat = <?= $lat ?>;
+            const lng = <?= $lng ?>;
+            map = new Microsoft.Maps.Map('#map', {
+                center: {
+                    latitude: lat,
+                    longitude: lng,
+                },
+                zoom: 17,
+            });
+            pushPin(<?= $lat ?>, <?= $lng ?>, map);
+            generateInfobox(<?= $lat ?>, <?= $lng ?>, <?= $name ?>, map);
+        };
+
+        function mapsError(error) {
+            let e = '';
+            if (error.code == 1) {
+                e = '位置情報が許可されてません';
+            } else if (error.code == 2) {
+                e = '現在位置を特定できません';
+            } else if (error.code == 3) {
+                e = '位置情報を取得する前にタイムアウトになりました';
+            }
+            alert('error:' + e);
+        };
+
+        function GetMap() {
+            navigator.geolocation.getCurrentPosition(mapsInit, mapsError, set);
+        }
+        window.onload = function() {
+            GetMap();
+        };
+    </script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ session_start();
 include("../functions.php");
 $pdo = connect_to_db();
 
+//レビューのDBへの登録
 $title = $_POST['title'];
 $text = $_POST['text'];
 $score = $_POST['score'];
@@ -37,11 +38,11 @@ if ($status == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
     <style>
-
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
+
         main {
             width: 100%;
             background: rgb(230, 165, 69);
@@ -61,7 +62,6 @@ if ($status == false) {
             margin-left: 300px;
             animation: key1 .3s ease infinite alternate;
             letter-spacing: 0.15em;
-
         }
 
         @keyframes key1 {
@@ -73,7 +73,6 @@ if ($status == false) {
                 transform: translateY(-10px);
             }
         }
-
 
         .top_logo img {
             margin-top: 20px;
@@ -102,32 +101,21 @@ if ($status == false) {
 </head>
 
 <body>
-
-
     <!-- <?php if (isset($result)) : ?> -->
     <!-- <?= $result ?> -->
-
     <p class="item_text">
-
         投稿できました
     </p>
     <!-- <?php endif; ?> -->
-
     <main>
         <div class="review_card">
-
         </div>
-
         <div class="div">
             <p class="item_text">
-
                 投稿できました
             </p>
         </div>
-
         <div class="top_logo"><a href="shop_profile.php?id=<?= $shop_id ?>"><img src="../image/ramenman.jpg" alt="">投稿を確認する</a></div>
-
-
 
     </main>
 </body>
