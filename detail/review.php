@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0023bd648ccf2b16ca6d5834ba9a98ac3b341c7b
 session_start();
 include("../functions.php");
 $pdo = connect_to_db();
@@ -8,9 +12,13 @@ $text = $_POST['text'];
 $score = $_POST['score'];
 $member_id = $_POST['member_id'];
 $shop_id = $_POST['shop_id'];
+<<<<<<< HEAD
 
 $sql = 'INSERT INTO posts(id,title,text,score,memeber_id,shop_id) SET (NULL,:title,:text,:score,:m_id,:s_id,sysdate())';
 
+=======
+$sql = 'INSERT INTO posts(id,title,text,score,member_id,shop_id,created) VALUES (NULL,:title,:text,:score,:m_id,:s_id,sysdate())';
+>>>>>>> 0023bd648ccf2b16ca6d5834ba9a98ac3b341c7b
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':title', $title, PDO::PARAM_STR);
 $stmt->bindValue(':text', $text, PDO::PARAM_STR);
@@ -21,13 +29,22 @@ $status = $stmt->execute();
 
 if ($status == false) {
     $error = $stmt->errorInfo();
+<<<<<<< HEAD
     echo json_encode(["error_msg" => "{$error[2]}"]);
     $title = "エラー";
+=======
+    $title = "エラー";
+    echo json_encode(["error_msg" => "{$error[2]}"]);
+>>>>>>> 0023bd648ccf2b16ca6d5834ba9a98ac3b341c7b
     exit();
 } else {
     $title = '投稿完了';
     $result = 'レビューの投稿が完了しました。';
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0023bd648ccf2b16ca6d5834ba9a98ac3b341c7b
 ?>
 <!DOCTYPE html>
 <html lang="ja">

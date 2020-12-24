@@ -55,7 +55,9 @@ if (!empty($_POST)) {
           <input type="hidden" name="size" value="1000000">
           <p>Email:</p><input type="text" name="email" value="" required>
           <p>password:</p><input type="password" name="password" value="" required>
+
           <p class="error"><?= $error ?></p>
+
           <div class="submit">
             <p><input type="submit" value="ログイン" id="submit"></p>
         </form>
