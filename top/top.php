@@ -37,8 +37,8 @@ if ($status == false) {
       <div class="nav">
         <nav>
           <ul class="main-nav">
-           <li><img src="../image/ramenman.jpg" alt=""></li>
-          
+            <li><img src="../image/ramenman.jpg" alt=""></li>
+
             <li>
               <a href="../search/search.php" class="top_menu">
                 <p class="menu_text"><span class="material-icons">local_dining</span>一覧</p>
@@ -109,6 +109,23 @@ if ($status == false) {
         <div class="ranking">
           <h1>ランキング</h1>
           <!-- カード -->
+          <div class="ranking_icon">
+            <div class="icon1">
+              <span class="material-icons">
+                looks_one
+              </span>
+            </div>
+              <div class="icon2">
+                <span class="material-icons">
+                  looks_two
+                </span>
+              </div>
+                <div class="icon3">
+                  <span class="material-icons">
+                    looks_3
+                  </span>
+                </div>
+          </div>
           <div class="ranking_card_box">
             <?php foreach ($shops as $shop) : ?>
               <?php
