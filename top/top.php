@@ -54,7 +54,6 @@ if ($status == false) {
         <nav>
           <ul class="main-nav">
             <li><img src="../image/ramenman.jpg" alt=""></li>
-
             <li>
               <a href="../search/search.php" class="top_menu">
                 <p class="menu_text"><span class="material-icons">local_dining</span>一覧</p>
@@ -132,16 +131,16 @@ if ($status == false) {
                 looks_one
               </span>
             </div>
-              <div class="icon2">
-                <span class="material-icons">
-                  looks_two
-                </span>
-              </div>
-                <div class="icon3">
-                  <span class="material-icons">
-                    looks_3
-                  </span>
-                </div>
+            <div class="icon2">
+              <span class="material-icons">
+                looks_two
+              </span>
+            </div>
+            <div class="icon3">
+              <span class="material-icons">
+                looks_3
+              </span>
+            </div>
           </div>
           <div class="ranking_card_box">
             <?php foreach ($shops as $shop) : ?>
@@ -181,6 +180,7 @@ if ($status == false) {
     <a href="#" class="scrolltop">
       top
     </a>
+    <footer></footer>
   </div>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

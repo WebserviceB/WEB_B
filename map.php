@@ -6,9 +6,6 @@ $sql = "SELECT * FROM shop";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 
-// var_dump($stmt);
-// exit;
-
 // データ登録処理後
 if ($status == false) {
 
@@ -16,7 +13,7 @@ if ($status == false) {
     echo json_encode(["error_msg" => "{$error[2]}"]);
     exit();
 } else {
-    $shops = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $maps = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 ?>
@@ -52,21 +49,30 @@ if ($status == false) {
             now.entities.push(pin);
         };
 
-        function generateInfobox(lat, lng, link, title, tell, now) {
+        function generateInfobox(lat, lng, title, tell, id, now) {
             const location = new Microsoft.Maps.Location(lat, lng)
-            console.log(title);
             let infobox = new Microsoft.Maps.Infobox(location, {
-                link: '<a href="../detail/shop_profile?id=' + link + '"',
                 title: title,
                 description: tell,
-                end: '</a>'
+                height: 80,
+                width: 160,
+                showPointer: false,
+                showCloseButton: false,
+                actions: [{
+                    label: title,
+                    eventHandler: function() {
+                        window.location.href = 'detail/shop_profile.php?id=' + id;
+                    }
+                }]
+
             });
             infobox.setMap(now);
         };
 
+
         function mapsInit(position) {
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
+            const lat = 33.591021;
+            const lng = 130.404782;
             map = new Microsoft.Maps.Map('#map', {
                 center: {
                     latitude: lat,
@@ -74,17 +80,17 @@ if ($status == false) {
                 },
                 zoom: 16,
             });
-            <?php foreach ($shops as $shop) : ?>
+
+            <?php foreach ($maps as $map) : ?>
                 <?php
-                $id = $shop['id'];
-                $lat = $shop['lat'];
-                $lng = $shop['lng'];
-                $link = "'" . $id . "'";
-                $name = "'" . $shop["name"] . "'";
-                $tell = "'" . $shop["tell"] . "'";
+                $id = $map['id'];
+                $lat = $map['lat'];
+                $lng = $map['lng'];
+                $name = "'" . $map["name"] . "'";
+                $tell = "'" . $map["tell"] . "'";
                 ?>
                 pushPin(<?= $lat ?>, <?= $lng ?>, map);
-                generateInfobox(<?= $lat ?>, <?= $lng ?>, <?= $link ?>, <?= $name ?>, <?= $tell ?>, map);
+                generateInfobox(<?= $lat ?>, <?= $lng ?>, <?= $name ?>, <?= $tell ?> <?= $id ?>, map);
             <?php endforeach; ?>
         };
 
