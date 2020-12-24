@@ -3,6 +3,8 @@ session_start();
 include("../functions.php");
 $pdo = connect_to_db();
 
+$_SESSION['page'] = 10;
+
 //店舗情報のデータを持ってくる処理 スコアが高い順に３店舗まで
 $sql = 'SELECT * FROM shop LEFT OUTER JOIN 
 (SELECT SUM(score)/COUNT(score) AS scores ,shop_id FROM posts GROUP BY shop_id) AS scores 
@@ -18,26 +20,19 @@ if ($status == false) {
   $shops = $stmt->fetchall(PDO::FETCH_ASSOC);
 }
 
-
-
-$sql1 = "SELECT * FROM shop";
-$stmt1 = $pdo->prepare($sql1);
-$status1 = $stmt1->execute();
-
-// var_dump($stmt);
-// exit;
-
-// データ登録処理後
-if ($status1 == false) {
-
+//店舗情報のデータを持ってくる処理 マップ用
+$sql = 'SELECT * FROM shop ';
+$stmt = $pdo->prepare($sql);
+$status = $stmt->execute();
+if ($status == false) {
   $error = $stmt->errorInfo();
   echo json_encode(["error_msg" => "{$error[2]}"]);
   exit();
 } else {
-  $shops1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+
+  //店舗情報の定義
+  $maps = $stmt->fetchall(PDO::FETCH_ASSOC);
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,12 +45,6 @@ if ($status1 == false) {
   <link rel="stylesheet" href="top.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    #map {
-      height: 300px;
-      width: 100%;
-    }
-  </style>
 </head>
 
 <body>
@@ -127,78 +116,9 @@ if ($status1 == false) {
       <section class="main_content">
         <div class="map">
           <h1>マップで探す</h1>
-          <div data-aos=“zoom-in” class=“map_box”>
+          <div data-aos="zoom-in" class="map_box">
             <div id="map"></div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnQJZrQy1wiLpy2Cxz-5hv-7pacTy0UigtldvZQiKCr3TotjOU7nZUiKGxVIV9Oz' async defer></script>
-            <script>
-              let map;
-              const set = {
-                enableHighAccuracy: true,
-                maximumAge: 20000,
-                timeout: 1000000,
-              };
-
-              function pushPin(lat, lng, now) {
-                const location = new Microsoft.Maps.Location(lat, lng)
-                const pin = new Microsoft.Maps.Pushpin(location, {
-                  color: 'navy', // 色の設定
-                  visible: true, // これ書かないとピンが見えない
-                });
-                now.entities.push(pin);
-              };
-
-              function generateInfobox(lat, lng, title, tell, now) {
-                const location = new Microsoft.Maps.Location(lat, lng)
-                console.log(title);
-                let infobox = new Microsoft.Maps.Infobox(location, {
-                  title: title,
-                  description: tell
-                });
-                infobox.setMap(now);
-              };
-
-              function mapsInit(position) {
-                const lat = position.coords.latitude;
-                const lng = position.coords.longitude;
-                map = new Microsoft.Maps.Map('#map', {
-                  center: {
-                    latitude: lat,
-                    longitude: lng,
-                  },
-                  zoom: 16,
-                });
-                <?php foreach ($shops1 as $shop1) : ?>
-                  <?php
-                  $lat = $shop1['lat'];
-                  $lng = $shop1['lng'];
-                  $name = "'" . $shop1['name'] . "'";
-                  $tell = "'" . $shop1['tell'] . "'";
-                  ?>
-                  pushPin(<?= $lat ?>, <?= $lng ?>, map);
-                  generateInfobox(<?= $lat ?>, <?= $lng ?>, <?= $name ?>, <?= $tell ?>, map);
-                <?php endforeach; ?>
-              };
-
-              function mapsError(error) {
-                let e = '';
-                if (error.code == 1) {
-                  e = '位置情報が許可されてません';
-                } else if (error.code == 2) {
-                  e = '現在位置を特定できません';
-                } else if (error.code == 3) {
-                  e = '位置情報を取得する前にタイムアウトになりました';
-                }
-                alert('error:' + e);
-              };
-
-              function GetMap() {
-                navigator.geolocation.getCurrentPosition(mapsInit, mapsError, set);
-              }
-              window.onload = function() {
-                GetMap();
-              };
-            </script>
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13293.89536922801!2d130.39905034999998!3d33.59300800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918dd8b0a675%3A0x43ab58c2e521e67!2z44CSODEwLTAwMDEg56aP5bKh55yM56aP5bKh5biC5Lit5aSu5Yy65aSp56We!5e0!3m2!1sja!2sjp!4v1608275851737!5m2!1sja!2sjp" width="1400" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
           </div>
         </div>
       </section>
@@ -265,6 +185,89 @@ if ($status1 == false) {
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="top.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnQJZrQy1wiLpy2Cxz-5hv-7pacTy0UigtldvZQiKCr3TotjOU7nZUiKGxVIV9Oz' async defer></script>
+  <script>
+    let map;
+    const set = {
+      enableHighAccuracy: true,
+      maximumAge: 20000,
+      timeout: 1000000,
+    };
+
+    function pushPin(lat, lng, now) {
+      const location = new Microsoft.Maps.Location(lat, lng)
+      const pin = new Microsoft.Maps.Pushpin(location, {
+        color: 'red', // 色の設定
+        visible: true, // これ書かないとピンが見えない
+      });
+      now.entities.push(pin);
+    };
+
+    function generateInfobox(lat, lng, title, id, now) {
+      const location = new Microsoft.Maps.Location(lat, lng)
+      let infobox = new Microsoft.Maps.Infobox(location, {
+        // description: tell,
+        height: 80,
+        width: 160,
+        showPointer: false,
+        showCloseButton: false,
+        actions: [{
+          label: title,
+          eventHandler: function() {
+            window.location.href = '../detail/shop_profile.php?id=' + id;
+          }
+        }],
+        title: title
+
+      });
+      infobox.setMap(now);
+    };
+
+
+    function mapsInit(position) {
+      const lat = 33.591021;
+      const lng = 130.404782;
+      map = new Microsoft.Maps.Map('#map', {
+        center: {
+          latitude: lat,
+          longitude: lng,
+        },
+        zoom: 16,
+      });
+
+      <?php foreach ($maps as $map) : ?>
+        <?php
+        $id = $map['id'];
+        $lat = $map['lat'];
+        $lng = $map['lng'];
+        $name = "'" . $map["name"] . "'";
+        $tell = "'" . $map["tell"] . "'";
+        ?>
+        pushPin(<?= $lat ?>, <?= $lng ?>, map);
+        generateInfobox(<?= $lat ?>, <?= $lng ?>, <?= $name ?>, <?= $id ?>, map);
+      <?php endforeach; ?>
+    };
+
+    function mapsError(error) {
+      let e = '';
+      if (error.code == 1) {
+        e = '位置情報が許可されてません';
+      } else if (error.code == 2) {
+        e = '現在位置を特定できません';
+      } else if (error.code == 3) {
+        e = '位置情報を取得する前にタイムアウトになりました';
+      }
+      alert('error:' + e);
+    };
+
+    function GetMap() {
+      navigator.geolocation.getCurrentPosition(mapsInit, mapsError, set);
+    }
+    window.onload = function() {
+      GetMap();
+    };
+  </script>
 </body>
 
 </html>

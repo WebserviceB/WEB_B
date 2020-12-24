@@ -4,6 +4,8 @@ include("../functions.php");
 error_reporting(E_ALL & ~E_NOTICE);
 $pdo = connect_to_db();
 
+$_SESSION['page'] = 20;
+
 // $id = 10;  //テスト用   
 // $member_id = 2;  //テスト用
 $id = $_GET['id'];  //本番はこっち
@@ -32,6 +34,7 @@ if ($status == false) {
     $score = $shop['score'];
     $lat = $shop['lat'];
     $lng = $shop['lng'];
+    $category = $shop['category'];
 }
 
 //レビューのデータを持ってくる処理
@@ -79,24 +82,18 @@ if ($status == false) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title><?= $name ?></title>
-    <style>
-        #map {
-            width: 100%;
-            height: 300px;
-        }
-    </style>
 </head>
 
-
 <body>
-    <header>
-        <div class="login_btn">
-            <a href="../login/login.php" class="top_menu">
-            <p class="menu_text"><span class="material-icons">login</span>login</p></a>
-        </div>
-        </header>
 
     <main>
+        <header>
+            <div class="login_btn">
+                <a href="../login/login.php?id=<?= $id ?>" class="top_menu">
+                    <p class="menu_text"><span class="material-icons">login</span>login</p>
+                </a>
+            </div>
+        </header>
         <div class="ditail_manu">
             <!-- 詳細カードスタート -->
             <section class="info">
@@ -108,7 +105,7 @@ if ($status == false) {
                     <div class="info_inner">
                         <ul>
                             <li><span>カテゴリ: </span>
-                                <p>ラーメン</p>
+                                <p><?= $category ?></p>
                             </li>
                         </ul>
                     </div>
@@ -126,7 +123,7 @@ if ($status == false) {
                                 <tr>
                                     <th>評価</th>
                                     <td>：</td>
-                                    <td><?= $total_score ?>点（<?= round($score_count, 1) ?>人の評価）</td>
+                                    <td><?= round($total_score, 1) ?>点（<?= $score_count ?>人の評価）</td>
                                 </tr>
                                 <tr>
                                     <th>電話番号</th>
@@ -204,7 +201,7 @@ if ($status == false) {
                         </p>
                         <p><textarea name="text" id="" cols="30" rows="10" placeholder="本文"></textarea></p>
 
-                        <p><button type="submit" id="submit">レビュー投稿</button></p>
+                        <p><button type="submit">レビュー投稿</button></p>
                     </form>
                 </details>
             <?php endif; ?>

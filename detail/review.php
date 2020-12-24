@@ -142,13 +142,13 @@ if ($status == false) {
 
 
             <?php if (isset($result)) : ?><p class="item_text"><?= $result ?> </p><?php endif;
-             ?>
-            
+                                                                                    ?>
+
 
             <div class="card_img">
                 <img src="../image/ramenman.jpg" alt="">
 
-                <a href="../detail/shop_profile.php">
+                <a href="../detail/shop_profile.php?id=<?= $shop_id ?>">
                     <p>店舗ページへ戻る</p>
                 </a>
             </div>
