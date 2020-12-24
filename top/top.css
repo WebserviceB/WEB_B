@@ -74,7 +74,7 @@ body {
 }
 
 .item_text {
-    width: 300px;
+    width:300px;
     font-size: 70px;
     font-weight: bold;
     color: rgb(251, 200, 59);
@@ -322,28 +322,11 @@ main {
     justify-content: space-between;
     margin-bottom: 20px;
     color: rgb(255, 183, 0);
-    position: absolute;
+   
 }
 
 .ranking_icon span {
     font-size: 55px;
-}
-
-.icon1 span {
-    z-index: 10;
-    position: relative;
-}
-
-.icon2 span {
-    z-index: 10;
-    position: relative;
-    right: 110px;
-}
-
-.icon3 span {
-    z-index: 10;
-    position: relative;
-    right: 220px;
 }
 
 .ranking_card_box {
@@ -352,7 +335,7 @@ main {
     margin: 0 10px;
     align-items: center;
     justify-content: space-between;
-    z-index: 1;
+    
 }
 
 .card {
