@@ -204,7 +204,6 @@ th {
     margin-left: 10px;
 }
 
-
 details {
     margin-top: 2rem;
 }
@@ -216,13 +215,13 @@ summary {
     box-shadow: 0 10px 10px 0 rgb(117, 115, 115);
     transition: all 0.3s;
 }
+
 summary:hover {
     font-size: 1.3rem;
     text-align: center;
     outline: none;
     margin-top: 5px;
     box-shadow: 0 5px 5px 0 rgb(117, 115, 115);
-   
 }
 
 form {
@@ -256,8 +255,9 @@ form button {
     background: lemonchiffon;
     box-shadow: 0 4px 4px 0 rgb(120, 118, 118);
 }
-form button:hover{
-   margin-top: 2px;
+
+form button:hover {
+    margin-top: 2px;
     box-shadow: 0 2px 2px 0 rgb(120, 118, 118);
 }
 

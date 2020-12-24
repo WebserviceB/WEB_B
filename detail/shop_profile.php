@@ -79,22 +79,9 @@ if ($status == false) {
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title><?= $name ?></title>
-    <style>
-        #map {
-            width: 100%;
-            height: 300px;
-        }
-    </style>
 </head>
 
-
 <body>
-    <header>
-        <div class="login_btn">
-            <a href="../login/login.php" class="top_menu">
-            <p class="menu_text"><span class="material-icons">login</span>login</p></a>
-        </div>
-        </header>
 
     <main>
         <div class="ditail_manu">
@@ -204,7 +191,7 @@ if ($status == false) {
                         </p>
                         <p><textarea name="text" id="" cols="30" rows="10" placeholder="本文"></textarea></p>
 
-                        <p><button type="submit" id="submit">レビュー投稿</button></p>
+                        <p><button type="submit">レビュー投稿</button></p>
                     </form>
                 </details>
             <?php endif; ?>

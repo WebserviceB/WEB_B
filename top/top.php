@@ -37,8 +37,8 @@ if ($status == false) {
       <div class="nav">
         <nav>
           <ul class="main-nav">
-           <li><img src="../image/ramenman.jpg" alt=""></li>
-          
+            <li><img src="../image/ramenman.jpg" alt=""></li>
+
             <li>
               <a href="../search/search.php" class="top_menu">
                 <p class="menu_text"><span class="material-icons">local_dining</span>一覧</p>
