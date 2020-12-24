@@ -189,12 +189,12 @@ main {
 }
 
 .search_textbox {
+    border: 2px solid rgb(249, 249, 14);
     position: relative;
     display: block;
     width: 500px;
     margin-top: 50px;
     padding: 15px;
-    border: none;
     border-radius: 5px;
     font-size: 16px;
     color: #a0a0a0;
