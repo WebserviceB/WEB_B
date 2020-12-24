@@ -74,6 +74,7 @@ body {
 }
 
 .item_text {
+    width:100%;
     font-size: 70px;
     font-weight: bold;
     color: rgb(251, 200, 59);
@@ -314,12 +315,12 @@ main {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    color: rgb(241, 230, 21);
+    color: rgb(255, 183, 0);
     position: absolute;
 }
 
 .ranking_icon span {
-    font-size: 50px;
+    font-size: 55px;
 }
 
 .icon1 span {
@@ -465,6 +466,6 @@ footer {
     background: rgba(54, 2, 2, 0.3);
     background-position: center;
     background-size: cover;
-    width: 60%;
+    width: 70%;
     height: 90%;
 }

@@ -46,7 +46,7 @@ if ($status == false) {
             </li>
             <li>
               <a href="#" class="top_menu">
-                <p class="menu_text"><span class="material-icons">where_to_vote</span>エリア</p>
+                <p class="menu_text"><span class="material-icons">where_to_vote</span>MAP</p>
               </a>
             </li>
             <li>
@@ -63,7 +63,7 @@ if ($status == false) {
         <div class="main_container">
           <div class="main_inner">
             <p class="main_inner_text">
-              FUKUOKA <p class="item_text">YATAI MAP</p>
+              FUKUOKA <p class="item_text">マチあか</p>
               <div class="search_input_box">
                 <form action="../search/search.php">
                   <input class="search_textbox" type="text" name="keyword">
