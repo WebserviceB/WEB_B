@@ -4,6 +4,8 @@ include("../functions.php");
 error_reporting(E_ALL & ~E_NOTICE);
 $pdo = connect_to_db();
 
+$_SESSION['page'] = 20;
+
 // $id = 10;  //テスト用   
 // $member_id = 2;  //テスト用
 $id = $_GET['id'];  //本番はこっち
@@ -32,6 +34,7 @@ if ($status == false) {
     $score = $shop['score'];
     $lat = $shop['lat'];
     $lng = $shop['lng'];
+    $category = $shop['category'];
 }
 
 //レビューのデータを持ってくる処理
@@ -84,6 +87,13 @@ if ($status == false) {
 <body>
 
     <main>
+        <header>
+            <div class="login_btn">
+                <a href="../login/login.php?id=<?= $id ?>" class="top_menu">
+                    <p class="menu_text"><span class="material-icons">login</span>login</p>
+                </a>
+            </div>
+        </header>
         <div class="ditail_manu">
             <!-- 詳細カードスタート -->
             <section class="info">
@@ -95,7 +105,7 @@ if ($status == false) {
                     <div class="info_inner">
                         <ul>
                             <li><span>カテゴリ: </span>
-                                <p>ラーメン</p>
+                                <p><?= $category ?></p>
                             </li>
                         </ul>
                     </div>
@@ -113,7 +123,7 @@ if ($status == false) {
                                 <tr>
                                     <th>評価</th>
                                     <td>：</td>
-                                    <td><?= $total_score ?>点（<?= round($score_count, 1) ?>人の評価）</td>
+                                    <td><?= round($total_score, 1) ?>点（<?= $score_count ?>人の評価）</td>
                                 </tr>
                                 <tr>
                                     <th>電話番号</th>

@@ -86,7 +86,6 @@ body {
     0% {
         transform: translateY(0px);
     }
-
     100% {
         transform: translateY(-10px);
     }
@@ -207,6 +206,13 @@ main {
 
 .map {
     width: 100%;
+    text-align: center;
+}
+
+#map {
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
 }
 
 .map h1 {
@@ -352,7 +358,6 @@ main {
 }
 
 .card_inner {
-
     display: flex;
     height: 180px;
     font-size: 12px;

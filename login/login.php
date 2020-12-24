@@ -3,7 +3,10 @@ session_start();
 error_reporting(E_ALL & ~E_NOTICE);
 include('../functions.php');
 
-//$_POSTがから出ない時の処理
+$shop_id = $_GET['id'];
+$page = $_SESSION['page'];
+
+//$_POSTがからでない時の処理
 if (!empty($_POST)) {
   $email = $_POST['email'];
   $password = $_POST['password'];
@@ -29,7 +32,14 @@ if (!empty($_POST)) {
       $_SESSION["id"] = $val["id"];
       $_SESSION["name"] = $val["name"];
       $_SESSION["email"] = $val["email"];
-      header('Location:../top/top.php');
+
+      if ($page < 11) {
+        header('Location:../top/top.php');
+      } else if ($page > 12) {
+        header('location:../detail/shop_profile.php?id=' . $shop_id);
+      } else {
+        echo 'みす';
+      }
     }
   }
 }
