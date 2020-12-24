@@ -92,7 +92,7 @@ if ($status == false) {
           </div>
           <div class="event_btn_c">
             <a href="../search/search.php?keyword=長浜"><span class="material-icons">star</span><br>
-              <p>長浜</p>
+              <p>長浜エリア</p>
             </a>
           </div>
         </div>
