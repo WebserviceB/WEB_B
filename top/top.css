@@ -74,6 +74,7 @@ body {
 }
 
 .item_text {
+    width:100%;
     font-size: 70px;
     font-weight: bold;
     color: rgb(251, 200, 59);
@@ -315,12 +316,44 @@ main {
     font-size: 40px;
 }
 
+.ranking_icon {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: rgb(255, 183, 0);
+    position: absolute;
+}
+
+.ranking_icon span {
+    font-size: 55px;
+}
+
+.icon1 span {
+    z-index: 10;
+    position: relative;
+}
+
+.icon2 span {
+    z-index: 10;
+    position: relative;
+    right: 110px;
+
+}
+
+.icon3 span {
+    z-index: 10;
+    position: relative;
+    right: 220px;
+}
+
 .ranking_card_box {
     width: 100%;
     display: flex;
     margin: 0 10px;
     align-items: center;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .card {
@@ -438,6 +471,11 @@ footer {
     background: rgba(54, 2, 2, 0.3);
     background-position: center;
     background-size: cover;
-    width: 60%;
+    width: 70%;
     height: 90%;
 }
+
+/* #map {
+height: 300px;
+width: 100%;                
+    } */

@@ -19,6 +19,7 @@ if ($status == false) {
   //店舗情報の定義
   $shops = $stmt->fetchall(PDO::FETCH_ASSOC);
 }
+
 //店舗情報のデータを持ってくる処理 マップ用
 $sql = 'SELECT * FROM shop ';
 $stmt = $pdo->prepare($sql);
@@ -28,6 +29,7 @@ if ($status == false) {
   echo json_encode(["error_msg" => "{$error[2]}"]);
   exit();
 } else {
+
   //店舗情報の定義
   $maps = $stmt->fetchall(PDO::FETCH_ASSOC);
 }
@@ -43,24 +45,6 @@ if ($status == false) {
   <link rel="stylesheet" href="top.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    /* CSS styles used by custom infobox template */
-    .customInfobox {
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      max-width: 200px;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 12px;
-      pointer-events: auto !important;
-    }
-
-    .customInfobox .title {
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-  </style>
 </head>
 
 <body>
@@ -78,7 +62,7 @@ if ($status == false) {
             </li>
             <li>
               <a href="#" class="top_menu">
-                <p class="menu_text"><span class="material-icons">where_to_vote</span>エリア</p>
+                <p class="menu_text"><span class="material-icons">where_to_vote</span>MAP</p>
               </a>
             </li>
             <li>
@@ -95,7 +79,7 @@ if ($status == false) {
         <div class="main_container">
           <div class="main_inner">
             <p class="main_inner_text">
-              FUKUOKA <p class="item_text">YATAI MAP</p>
+              FUKUOKA <p class="item_text">マチあか</p>
               <div class="search_input_box">
                 <form action="../search/search.php">
                   <input class="search_textbox" type="text" name="keyword">
@@ -124,7 +108,7 @@ if ($status == false) {
           </div>
           <div class="event_btn_c">
             <a href="../search/search.php?keyword=長浜"><span class="material-icons">star</span><br>
-              <p>長浜</p>
+              <p>長浜エリア</p>
             </a>
           </div>
         </div>
@@ -142,6 +126,23 @@ if ($status == false) {
         <div class="ranking">
           <h1>ランキング</h1>
           <!-- カード -->
+          <div class="ranking_icon">
+            <div class="icon1">
+              <span class="material-icons">
+                looks_one
+              </span>
+            </div>
+              <div class="icon2">
+                <span class="material-icons">
+                  looks_two
+                </span>
+              </div>
+                <div class="icon3">
+                  <span class="material-icons">
+                    looks_3
+                  </span>
+                </div>
+          </div>
           <div class="ranking_card_box">
             <?php foreach ($shops as $shop) : ?>
               <?php
