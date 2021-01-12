@@ -1,5 +1,8 @@
 <?php
 // session_start();
+
+// アババッババスバなさあ
+
 include("functions.php");
 // check_session_id();
 
